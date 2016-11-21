@@ -30,7 +30,7 @@ public class CreateCVActivity extends AppCompatActivity {
     private String email=null;
     private String socialNetwork=null;
     private String sex=null;
-
+//test teo commit
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
