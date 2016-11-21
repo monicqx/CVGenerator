@@ -5,8 +5,10 @@
     <string name="last_name">Last name</string>
     <string name="telephone">Telephone</string>
     <string name="email">E-mail</string>
-
-    <string-array name="social_networks">
+    <string name="social_networks">Social networks</string>
+    <string name="sex">Sex</string>
+    <string name="birthday">Birthday</string>
+    <string-array name="social_networks_array">
         <item>LinkedIn</item>
         <item>Facebook</item>
         <item>Github</item>
