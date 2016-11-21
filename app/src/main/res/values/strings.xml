@@ -1,18 +1,21 @@
 <resources>
     <string name="app_name">CV Generator</string>
     <string name="welcome_text">Hello!</string>
-    <string name="first_name">First name</string>
-    <string name="last_name">Last name</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
     <string name="telephone">Telephone</string>
     <string name="email">E-mail</string>
-    <string name="social_networks">Social networks</string>
+    <string name="social_networks">Social Networks</string>
     <string name="sex">Sex</string>
     <string name="birthday">Birthday</string>
+    <string name="school">School</string>
+    <string name="field_of_study">Field of Study</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
     <string-array name="social_networks_array">
         <item>LinkedIn</item>
         <item>Facebook</item>
         <item>Github</item>
         <item>Skype</item>
     </string-array>
-
 </resources>
