@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:minHeight="330dp"
+    android:minWidth="450dp"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:columnCount="2">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/social_network1"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp"
+        android:id="@+id/Sf_socialNetwork1TV"/>
+
+    <EditText
+        android:id="@+id/Sf_socialnetwork1ET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/social_network2"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp"
+        android:id="@+id/Sf_socialNetwork2TV"/>
+
+    <EditText
+        android:id="@+id/Sf_socialnetwork2ET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/social_network3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp"
+        android:id="@+id/Sf_socialNetwork3TV"/>
+
+    <EditText
+        android:id="@+id/Sf_socialnetwork3ET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/social_network4"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp"
+        android:id="@+id/Sf_socialNetwork4TV"/>
+
+    <EditText
+        android:id="@+id/Sf_socialnetwork4ET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp" />
+    </GridLayout>
+    <Button
+        android:id="@+id/Sf_addSocialNetworksBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Add"
+        android:textColor="@color/white"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+</LinearLayout>
