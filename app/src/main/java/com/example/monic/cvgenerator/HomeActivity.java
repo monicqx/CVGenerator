@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class HomeActivity extends AppCompatActivity {
-
+        //gigel
     private Calendar calendar = Calendar.getInstance();
     private int currentYear = calendar.get(Calendar.YEAR);
     public static ArrayList<String> years = new ArrayList<>();
