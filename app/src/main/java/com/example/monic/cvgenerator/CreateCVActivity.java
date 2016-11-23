@@ -37,7 +37,6 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
 
-    private Button toEducationBtn = null;
     private String firstName = null;
     private String lastName = null;
     private String telephone = null;
@@ -55,7 +54,10 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_cv);
 
-        Button addSocialNetworkBtn = (Button) findViewById(R.id.C_addSocialNetworksBtn);
+        final RadioGroup sexRadioGroup = (RadioGroup) findViewById(R.id.C_sexRadioGr);
+        final Button addSocialNetworkBtn = (Button) findViewById(R.id.C_addSocialNetworksBtn);
+        final Button toEducationBtn = (Button) findViewById(R.id.C_toEducationBtn);
+
         addSocialNetworkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,8 +67,6 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
             }
         });
 
-
-        toEducationBtn = (Button) findViewById(R.id.C_toEducationBtn);
         toEducationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,8 +74,6 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
                 lastName = ((EditText) findViewById(R.id.C_lastNameET)).getText().toString();
                 telephone = ((EditText) findViewById(R.id.C_telephoneET)).getText().toString();
                 email = ((EditText) findViewById(R.id.C_emailET)).getText().toString();
-
-                RadioGroup sexRadioGroup = (RadioGroup) findViewById(R.id.C_sexRadioGr);
                 if (sexRadioGroup.getCheckedRadioButtonId() != -1) //if one of the radio buttons is checked
                     sex = ((RadioButton) findViewById(sexRadioGroup.getCheckedRadioButtonId())).getText().toString();
 

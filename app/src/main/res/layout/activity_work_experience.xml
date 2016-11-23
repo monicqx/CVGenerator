@@ -119,7 +119,7 @@
                 android:layout_height="35dp"
                 android:layout_gravity="end"
                 android:text="+"
-                android:id="@+id/W_addWorkBtn"
+                android:id="@+id/W_addWorkExperienceBtn"
                 android:background="@color/colorHeader"
                 />
             <Button

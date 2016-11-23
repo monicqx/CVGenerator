@@ -20,7 +20,6 @@ public class EducationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_education);
 
-
         //TODO: bianca: done dar trebuie sa verificam daca e totul ok
         //TODO: button for adding another School
         //TODO: IDEE: sa stergem ce e in EditTexturi si sa salvam Scoala curenta intr-un ArrayList, asa se pot adauga oricate scoli vrea useru
@@ -30,6 +29,13 @@ public class EducationActivity extends AppCompatActivity {
         // alte idei?
 
         final Intent intent=getIntent();  //the intent that started this activity
+        final Spinner startYearSpinner = (Spinner) findViewById(R.id.E_startYearSp);
+        final Spinner endYearSpinner = (Spinner) findViewById(R.id.E_endYearSp);
+        final Button addBtn = (Button)findViewById(R.id.E_addEducationBtn);
+        final EditText schoolET = (EditText)findViewById(R.id.E_schoolET);
+        final EditText fieldET = (EditText)findViewById(R.id.E_fieldOfStudyET);
+
+        populateSpinners(startYearSpinner,endYearSpinner);
 
         Button toWorkExperienceBtn = (Button)findViewById(R.id.E_toWorkExperienceBtn);
         toWorkExperienceBtn.setOnClickListener(new View.OnClickListener() {
@@ -37,41 +43,25 @@ public class EducationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),WorkExperienceActivity.class);
                 //TODO: extract all data from EditTexts and pass it to the next Activity
+                //TODO: create Education object and add to ArrayList
+                //TODO: check if controls are empty (using the method)
                 startActivity(intent);
             }
         });
 
-        //Preluare Spinnere si populare cu ani
-        ArrayAdapter<String> adapterStart = new ArrayAdapter<String>(getApplicationContext(),
-                R.layout.support_simple_spinner_dropdown_item, HomeActivity.yearsStart);
-        ArrayAdapter<String> adapterEnd = new ArrayAdapter<String>(getApplicationContext(),
-                R.layout.support_simple_spinner_dropdown_item, HomeActivity.yearsEndEducation);
-        final Spinner spinnerStart = (Spinner) findViewById(R.id.E_startYearSp);
-        spinnerStart.setAdapter(adapterStart);
-        final Spinner spinnerStop = (Spinner) findViewById(R.id.E_endYearSp);
-        spinnerStop.setAdapter(adapterEnd);
-
         //Golirea formularului si crearea unui obiect de tip Education cu datele completate
-        Button addBtn = (Button)findViewById(R.id.E_addEducationBtn);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText school = (EditText)findViewById(R.id.E_schoolET);
-                EditText field = (EditText)findViewById(R.id.E_fieldOfStudyET);
 
-                //TODO: Nu inteleg de ce nu merge????
-                if(school.getText().toString().equals("")){
-                    Toast.makeText(getApplicationContext(),"No empty fields allowed!",Toast.LENGTH_LONG);
+                //TODO: call method when clicking on "toWorkExperienceBtn" button as well
+                if(controlsAreEmpty(schoolET,fieldET)){
+                    Toast.makeText(getApplicationContext(),"No empty fields allowed!",Toast.LENGTH_LONG).show();
+                }else {
+                    Education education = new Education(schoolET.getText().toString(), fieldET.getText().toString(), startYearSpinner.getSelectedItem().toString(), endYearSpinner.getSelectedItem().toString());
+                    CreateCVActivity.educationArrayList.add(education);
                 }
-
-                Education education = new Education(school.getText().toString(),field.getText().toString(),spinnerStart.getSelectedItem().toString(),spinnerStop.getSelectedItem().toString());
-                CreateCVActivity.educationArrayList.add(education);
-
-                //Golirea formularului
-                school.getText().clear();
-                field.getText().clear();
-                spinnerStart.setSelection(0);
-                spinnerStop.setSelection(0);
+                emptyControls(schoolET,fieldET,startYearSpinner,endYearSpinner);
             }
         });
 
@@ -79,5 +69,35 @@ public class EducationActivity extends AppCompatActivity {
                 +" "+intent.getStringExtra("telephone")+" "//
                 +intent.getStringExtra("email")+" "+intent.getStringExtra("sex")//
                 ,Toast.LENGTH_LONG ).show();//TODO: remove this
+    }
+
+    private boolean controlsAreEmpty(EditText schoolET, EditText fieldET) {
+
+        if(schoolET.getText().toString().isEmpty())
+            return true;
+        if(fieldET.getText().toString().isEmpty())
+            return true;
+        return false;
+    }
+
+    private void emptyControls(EditText schoolET, EditText fieldET, Spinner startYearSpinner, Spinner endYearSpinner) {
+        schoolET.getText().clear();
+        fieldET.getText().clear();
+        startYearSpinner.setSelection(0);
+        endYearSpinner.setSelection(0);
+    }
+
+    /**
+     * @param startYearSpinner
+     * @param endYearSpinner
+     * Populates spinners with the ArrayList containing the years.
+     */
+    private void populateSpinners(Spinner startYearSpinner, Spinner endYearSpinner) {
+        ArrayAdapter<String> adapterStart = new ArrayAdapter<String>(getApplicationContext(),
+                R.layout.support_simple_spinner_dropdown_item, HomeActivity.yearsStart);
+        ArrayAdapter<String> adapterEnd = new ArrayAdapter<String>(getApplicationContext(),
+                R.layout.support_simple_spinner_dropdown_item, HomeActivity.yearsEndEducation);
+        startYearSpinner.setAdapter(adapterStart);
+        endYearSpinner.setAdapter(adapterEnd);
     }
 }
