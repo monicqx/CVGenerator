@@ -21,10 +21,10 @@ public class WorkExperienceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work_experience);
 
-        Spinner sp = (Spinner)findViewById(R.id.W_startYearSp);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),
                 R.layout.support_simple_spinner_dropdown_item, HomeActivity.years);
         Spinner spinner = (Spinner) findViewById(R.id.W_startYearSp);
         spinner.setAdapter(adapter);
+
     }
 }

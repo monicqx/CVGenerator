@@ -30,9 +30,7 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-
     }
-
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
 
@@ -96,7 +94,6 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
         findViewsById();
         setDateTimeField();
-
     }
 
     /*public void onFragmentInteraction(Uri uri) {
