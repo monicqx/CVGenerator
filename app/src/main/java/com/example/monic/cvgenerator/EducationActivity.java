@@ -1,7 +1,6 @@
 package com.example.monic.cvgenerator;
 
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,8 +21,7 @@ public class EducationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_education);
 
 
-        //TODO: Education class
-        //TODO: Education ArrayList (decide where to put it)
+        //TODO: bianca: done dar trebuie sa verificam daca e totul ok
         //TODO: button for adding another School
         //TODO: IDEE: sa stergem ce e in EditTexturi si sa salvam Scoala curenta intr-un ArrayList, asa se pot adauga oricate scoli vrea useru
         // daca facem asa avem id-urile de la editTexturi. nu stiu cum sa facem sa apara alte EditTexturi sub cele pe care le avem acum
@@ -44,12 +42,14 @@ public class EducationActivity extends AppCompatActivity {
         });
 
         //Preluare Spinnere si populare cu ani
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),
-                R.layout.support_simple_spinner_dropdown_item, HomeActivity.years);
+        ArrayAdapter<String> adapterStart = new ArrayAdapter<String>(getApplicationContext(),
+                R.layout.support_simple_spinner_dropdown_item, HomeActivity.yearsStart);
+        ArrayAdapter<String> adapterEnd = new ArrayAdapter<String>(getApplicationContext(),
+                R.layout.support_simple_spinner_dropdown_item, HomeActivity.yearsEndEducation);
         final Spinner spinnerStart = (Spinner) findViewById(R.id.E_startYearSp);
-        spinnerStart.setAdapter(adapter);
+        spinnerStart.setAdapter(adapterStart);
         final Spinner spinnerStop = (Spinner) findViewById(R.id.E_endYearSp);
-        spinnerStop.setAdapter(adapter);
+        spinnerStop.setAdapter(adapterEnd);
 
         //Golirea formularului si crearea unui obiect de tip Education cu datele completate
         Button addBtn = (Button)findViewById(R.id.E_addEducationBtn);
@@ -59,14 +59,13 @@ public class EducationActivity extends AppCompatActivity {
                 EditText school = (EditText)findViewById(R.id.E_schoolET);
                 EditText field = (EditText)findViewById(R.id.E_fieldOfStudyET);
 
-                //TODO: Nu inteleg de ce nu merge
-                if(school.getText().toString().isEmpty() || field.getText().toString().isEmpty()){
+                //TODO: Nu inteleg de ce nu merge????
+                if(school.getText().toString().equals("")){
                     Toast.makeText(getApplicationContext(),"No empty fields allowed!",Toast.LENGTH_LONG);
                 }
 
                 Education education = new Education(school.getText().toString(),field.getText().toString(),spinnerStart.getSelectedItem().toString(),spinnerStop.getSelectedItem().toString());
-                //TODO: de scos verificarea (eventual si tostringu)
-                Toast.makeText(EducationActivity.this, education.toString(), Toast.LENGTH_LONG).show();
+                CreateCVActivity.educationArrayList.add(education);
 
                 //Golirea formularului
                 school.getText().clear();

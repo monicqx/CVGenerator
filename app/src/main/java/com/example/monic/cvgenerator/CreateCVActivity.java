@@ -17,9 +17,12 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.monic.cvgenerator.Classes.Education;
 import com.example.monic.cvgenerator.Classes.SocialNetworksFragment;
+import com.example.monic.cvgenerator.Classes.WorkExperience;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
@@ -41,7 +44,11 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
     private String email = null;
     private String sex = null;
 
+    //Colectii ce retin diverse informatii
     public static Map<String, String> socialNetworksMap = new HashMap<>();
+    public static ArrayList<Education> educationArrayList = new ArrayList<Education>();
+    public static ArrayList<WorkExperience> workExperienceArrayList = new ArrayList<WorkExperience>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

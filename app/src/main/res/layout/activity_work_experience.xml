@@ -36,7 +36,7 @@
 
                 <TextView
                     android:text="@string/position"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="20dp" />
 
                 <EditText
@@ -47,7 +47,7 @@
 
                 <TextView
                     android:text="@string/company"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="20dp" />
 
                 <EditText
@@ -57,16 +57,80 @@
                     android:textSize="20dp" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/start_date"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="20dp" />
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20dp"/>
 
                 <Spinner
+                    android:layout_height="50dp"
+                    android:layout_width="100dp"
+                    android:textAlignment="center"
                     android:id="@+id/W_startYearSp"
                     android:layout_marginLeft="5dp"
                     android:background="@color/colorAccent" />
-                <!--TODO: finish interface-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/end_date"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20dp"
+                    android:id="@+id/W_endYearL"
+                    android:layout_marginTop="10dp"/>
+
+                <Spinner
+                    android:layout_height="50dp"
+                    android:layout_width="100dp"
+                    android:textAlignment="center"
+                    android:id="@+id/W_endYearSp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@color/colorAccent"
+                    android:layout_marginTop="10dp" />
+
+                <CheckBox
+                    android:text="Present"
+                    android:layout_gravity="start"
+                    android:layout_column="1"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20dp"
+                    android:id="@+id/W_presentCB"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20dp"
+                    android:layout_marginTop="10dp"/>
+
+                <EditText
+                    android:id="@+id/W_descriptionET"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20dp"
+                    android:inputType="textMultiLine"
+                    android:maxLines="5"/>
+
             </GridLayout>
+            <Button
+                android:layout_width="45dp"
+                android:layout_height="35dp"
+                android:layout_gravity="end"
+                android:text="+"
+                android:id="@+id/W_addWorkBtn"
+                android:background="@color/colorHeader"
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="next"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimaryDark"
+                android:id="@+id/E_toLanguages"/>
             <!--TODO: add button, copy from education-->
         </LinearLayout>
     </ScrollView>

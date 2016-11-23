@@ -10,10 +10,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class HomeActivity extends AppCompatActivity {
-        //gigel
+
+    //Date pentru stocarea anilor
     private Calendar calendar = Calendar.getInstance();
     private int currentYear = calendar.get(Calendar.YEAR);
-    public static ArrayList<String> years = new ArrayList<>();
+    public static ArrayList<String> yearsStart = new ArrayList<>();
+    public static ArrayList<String> yearsEndEducation = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +35,14 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void computeYearsArray() {
-        for(int i=currentYear;i>=1940;i--){
-            years.add(i+"");
+        for (int i = currentYear+10;i>currentYear;i--){
+            yearsEndEducation.add(i+" ");
         }
+        for(int i=currentYear;i>=1940;i--){
+            yearsStart.add(i+"");
+            yearsEndEducation.add(i+"");
+        }
+
+        //TODO: CURRENTLY WORKING LANGA END YEAR LA WORK
     }
 }
