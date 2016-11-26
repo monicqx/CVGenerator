@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:columnCount="2">
+
+    <TextView
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/L_languageTV"/>
+
+    <TextView
+        android:textSize="20dp"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/L_levelTV"
+        android:layout_gravity="center"/>
+
+</GridLayout>

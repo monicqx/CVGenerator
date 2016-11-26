@@ -31,7 +31,7 @@ public class EducationActivity extends AppCompatActivity {
         final Intent intent=getIntent();  //the intent that started this activity
         final Spinner startYearSpinner = (Spinner) findViewById(R.id.E_startYearSp);
         final Spinner endYearSpinner = (Spinner) findViewById(R.id.E_endYearSp);
-        final Button addBtn = (Button)findViewById(R.id.E_addEducationBtn);
+        final Button addEducationBtn = (Button)findViewById(R.id.E_addEducationBtn);
         final EditText schoolET = (EditText)findViewById(R.id.E_schoolET);
         final EditText fieldET = (EditText)findViewById(R.id.E_fieldOfStudyET);
 
@@ -41,16 +41,26 @@ public class EducationActivity extends AppCompatActivity {
         toWorkExperienceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getApplicationContext(),WorkExperienceActivity.class);
+
+                if(noEducationAdded() && controlsAreEmpty(schoolET,fieldET)){
+                    Toast.makeText(EducationActivity.this, "Please add at least one Education entry.", Toast.LENGTH_LONG).show();
+                }else if(!controlsAreEmpty(schoolET,fieldET)){
+                    Education education = new Education(schoolET.getText().toString(), fieldET.getText().toString(), startYearSpinner.getSelectedItem().toString(), endYearSpinner.getSelectedItem().toString());
+                    CreateCVActivity.educationArrayList.add(education);
+                    clearControls(schoolET,fieldET,startYearSpinner,endYearSpinner);
+                    startActivity(intent);
+                }
+                else{
+                    startActivity(intent);
+                }
                 //TODO: extract all data from EditTexts and pass it to the next Activity
-                //TODO: create Education object and add to ArrayList
-                //TODO: check if controls are empty (using the method)
-                startActivity(intent);
             }
         });
 
         //Golirea formularului si crearea unui obiect de tip Education cu datele completate
-        addBtn.setOnClickListener(new View.OnClickListener() {
+        addEducationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -61,7 +71,7 @@ public class EducationActivity extends AppCompatActivity {
                     Education education = new Education(schoolET.getText().toString(), fieldET.getText().toString(), startYearSpinner.getSelectedItem().toString(), endYearSpinner.getSelectedItem().toString());
                     CreateCVActivity.educationArrayList.add(education);
                 }
-                emptyControls(schoolET,fieldET,startYearSpinner,endYearSpinner);
+                clearControls(schoolET,fieldET,startYearSpinner,endYearSpinner);
             }
         });
 
@@ -69,6 +79,12 @@ public class EducationActivity extends AppCompatActivity {
                 +" "+intent.getStringExtra("telephone")+" "//
                 +intent.getStringExtra("email")+" "+intent.getStringExtra("sex")//
                 ,Toast.LENGTH_LONG ).show();//TODO: remove this
+    }
+
+    private boolean noEducationAdded() {
+        if(CreateCVActivity.educationArrayList.isEmpty())
+            return true;
+        return false;
     }
 
     private boolean controlsAreEmpty(EditText schoolET, EditText fieldET) {
@@ -80,7 +96,7 @@ public class EducationActivity extends AppCompatActivity {
         return false;
     }
 
-    private void emptyControls(EditText schoolET, EditText fieldET, Spinner startYearSpinner, Spinner endYearSpinner) {
+    private void clearControls(EditText schoolET, EditText fieldET, Spinner startYearSpinner, Spinner endYearSpinner) {
         schoolET.getText().clear();
         fieldET.getText().clear();
         startYearSpinner.setSelection(0);

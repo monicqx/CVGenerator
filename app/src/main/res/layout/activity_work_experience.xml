@@ -130,8 +130,7 @@
                 android:layout_marginTop="20dp"
                 android:textColor="@color/white"
                 android:background="@color/colorPrimaryDark"
-                android:id="@+id/E_toLanguages"/>
-            <!--TODO: add button, copy from education-->
+                android:id="@+id/W_toLanguages"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

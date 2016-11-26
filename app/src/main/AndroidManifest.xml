@@ -18,7 +18,8 @@
         <activity android:name=".MenuActivity" />
         <activity android:name=".CreateCVActivity" />
         <activity android:name=".EducationActivity" />
-        <activity android:name=".WorkExperienceActivity"></activity>
+        <activity android:name=".WorkExperienceActivity" />
+        <activity android:name=".LanguagesActivity"></activity>
     </application>
 
 </manifest>

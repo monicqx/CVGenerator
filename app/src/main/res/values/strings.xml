@@ -19,4 +19,17 @@
     <string name="position">Position</string>
     <string name="company">Company</string>
     <string name="description">Description</string>
+    <string name="language">Language</string>
+    <string name="level">Level</string>
+    <string name="cs_skills">IT Skills</string>
+
+    <string-array name="language_levels">
+        <item>A1</item>
+        <item>A2</item>
+        <item>B1</item>
+        <item>B2</item>
+        <item>C1</item>
+        <item>C2</item>
+    </string-array>
+
 </resources>

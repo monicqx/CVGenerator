@@ -8,16 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.monic.cvgenerator.Classes.Education;
+import com.example.monic.cvgenerator.Classes.Language;
 import com.example.monic.cvgenerator.Classes.SocialNetworksFragment;
 import com.example.monic.cvgenerator.Classes.WorkExperience;
 
@@ -29,7 +27,7 @@ import java.util.Locale;
 import java.util.Map;
 
 public class CreateCVActivity extends AppCompatActivity implements SocialNetworksFragment.OnFragmentInteractionListener {
-    private EditText birthday;
+    private EditText birthdayET;
 
     @Override
     public void onFragmentInteraction(Uri uri) {
@@ -42,11 +40,13 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
     private String telephone = null;
     private String email = null;
     private String sex = null;
+    private String birthday =null;
 
     //Colectii ce retin diverse informatii
     public static Map<String, String> socialNetworksMap = new HashMap<>();
     public static ArrayList<Education> educationArrayList = new ArrayList<Education>();
     public static ArrayList<WorkExperience> workExperienceArrayList = new ArrayList<WorkExperience>();
+    public static ArrayList<Language> languagesArrayList = new ArrayList<>();
 
 
     @Override
@@ -77,7 +77,6 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
                 if (sexRadioGroup.getCheckedRadioButtonId() != -1) //if one of the radio buttons is checked
                     sex = ((RadioButton) findViewById(sexRadioGroup.getCheckedRadioButtonId())).getText().toString();
 
-                //TODO: get birthday text and add it to intent  - Bianca
                 //TODO: check if e-mail; if not ok then make text red
                 //TODO: get data from map and add it to intent  - Bianca
 
@@ -89,6 +88,7 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
                 intent.putExtra("telephone", telephone);
                 intent.putExtra("email", email);
                 intent.putExtra("sex", sex);
+                intent.putExtra("birthday",birthday);
                 startActivity(intent);
             }
         });
@@ -107,31 +107,33 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
     }*/
 
     private void findViewsById() {
-        birthday = (EditText) findViewById(R.id.C_chooseBirthdayET);
-        birthday.setInputType(InputType.TYPE_NULL);
-        birthday.requestFocus();
+        birthdayET = (EditText) findViewById(R.id.C_chooseBirthdayET);
+        birthdayET.setInputType(InputType.TYPE_NULL);
+        birthdayET.requestFocus();
     }
 
-    private void setDateTimeField() {
-        birthday.setOnClickListener(new View.OnClickListener() {
+    private String setDateTimeField() {
+        birthdayET.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (v == birthday) {
+                if (v == birthdayET) {
                     datePickerDialog.show();
                 }
             }
         });
 
         Calendar newCalendar = Calendar.getInstance();
+
         datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, monthOfYear, dayOfMonth);
-                birthday.setText(dateFormatter.format(newDate.getTime()));
+                birthdayET.setText(dateFormatter.format(newDate.getTime()));
+                birthday =dateFormatter.format(newDate.getTime()).toString();
             }
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
-
+        return birthday;
     }
 
 
