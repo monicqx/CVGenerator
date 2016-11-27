@@ -6,10 +6,9 @@ package com.example.monic.cvgenerator.Classes;
 
 public class Language {
     private String language;
-    public enum LanguageLevel{A1,A2,B1,B2,C1,C2};
-    private LanguageLevel level;
+    private String level;
 
-    public Language(String language, LanguageLevel level) {
+    public Language(String language, String level) {
         this.language = language;
         this.level = level;
     }
@@ -22,11 +21,11 @@ public class Language {
         this.language = language;
     }
 
-    public LanguageLevel getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(LanguageLevel level) {
+    public void setLevel(String level) {
         this.level = level;
     }
 }

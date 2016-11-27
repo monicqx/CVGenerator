@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:shadowColor="@color/colorAccent"
-                android:text="Work Experience"
+                android:text="@string/work_experience_title"
                 android:textColor="@color/colorHeader"
                 android:textSize="27dp" />
 

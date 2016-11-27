@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -14,8 +15,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.monic.cvgenerator.CreateCVActivity;
+import com.example.monic.cvgenerator.HomeActivity;
 import com.example.monic.cvgenerator.LanguagesActivity;
 import com.example.monic.cvgenerator.R;
+
+import java.util.ArrayList;
 
 public class LanguageFragment extends DialogFragment {
     private LanguageFragment.OnFragmentInteractionListener mListener;
@@ -37,18 +41,31 @@ public class LanguageFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.languages_fragment, container, false);
-        Button button = (Button) view.findViewById(R.id.Lf_addLanguageBtn);
+        Button addLanguageBtn = (Button) view.findViewById(R.id.Lf_addLanguageBtn);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        ArrayList<String> languageLevelsList=new ArrayList<>();
+        languageLevelsList.add("A1");
+        languageLevelsList.add("A2");
+        languageLevelsList.add("B1");
+        languageLevelsList.add("B2");
+        languageLevelsList.add("C1");
+        languageLevelsList.add("C2");
+        final Spinner levelSp = (Spinner)view.findViewById(R.id.Lf_levelsSp);
+        ArrayAdapter<String> languageLevelsAdapter = new ArrayAdapter<String>(view.getContext(),
+                R.layout.support_simple_spinner_dropdown_item,languageLevelsList);
+        levelSp.setAdapter(languageLevelsAdapter);
+
+
+        addLanguageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EditText languageET = (EditText) view.findViewById(R.id.Lf_languageET);
-                Spinner levelSp = (Spinner)view.findViewById(R.id.Lf_levelsSp);
+
                 if (!languageET.getText().toString().isEmpty()) {
-                    Language.LanguageLevel levelLanguage = Language.LanguageLevel.valueOf(levelSp.getSelectedItem().toString());
-                    Language language = new Language(languageET.getText().toString(),levelLanguage);
+                   // Language.LanguageLevel languageLevel = Language.LanguageLevel.valueOf(levelSp.getSelectedItem().toString());
+                    Language language = new Language(languageET.getText().toString(),levelSp.getSelectedItem().toString());
                     CreateCVActivity.languagesArrayList.add(language);
-                    LanguagesActivity.adapter.notifyDataSetChanged();
+                    LanguagesActivity.languagesAdapter.notifyDataSetChanged();
                 }
                 LanguageFragment.this.dismiss();
             }

@@ -42,7 +42,5 @@ public class HomeActivity extends AppCompatActivity {
             yearsStart.add(i+"");
             yearsEndEducation.add(i+"");
         }
-
-        //TODO: CURRENTLY WORKING LANGA END YEAR LA WORK
     }
 }

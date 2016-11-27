@@ -17,48 +17,24 @@ import com.example.monic.cvgenerator.Classes.WorkExperience;
 public class WorkExperienceActivity extends AppCompatActivity {
 
     //TODO: figure if there is a necessity to ever clear all the array lists
-    //TODO: button to next page and Intent
+    private Spinner startYearSpinner=null;
+    private Spinner endYearSpinner =null;
+    private TextView labelEndYear=null;
+    private CheckBox presentCheckBox=null;
+    private Button addWorkExperienceBtn=null;
+    private EditText positionET=null;
+    private EditText companyET=null;
+    private EditText descriptionET=null;
+    private Button toLanguagesBtn=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work_experience);
 
-        final Spinner startYearSpinner = (Spinner) findViewById(R.id.W_startYearSp);
-        final Spinner endYearSpinner = (Spinner) findViewById(R.id.W_endYearSp);
-        final TextView labelEndYear = (TextView) findViewById(R.id.W_endYearL);
-        final CheckBox presentCheckBox = (CheckBox) findViewById(R.id.W_presentCB);
-        final Button addWorkExperienceBtn = (Button) findViewById(R.id.W_addWorkExperienceBtn);
-        final EditText positionET = (EditText) findViewById(R.id.W_positionET);
-        final EditText companyET = (EditText) findViewById(R.id.W_companyET);
-        final EditText descriptionET = (EditText) findViewById(R.id.W_descriptionET);
-        final Button toLanguages=(Button)findViewById(R.id.W_toLanguages);
+        findViewsById();
 
         populateSpinners(startYearSpinner, endYearSpinner);
-
-        toLanguages.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(),LanguagesActivity.class);
-                if(!controlsAreEmpty(positionET,companyET)){
-                    String endYear=null;
-                    if (endYearSpinner.getVisibility() == View.INVISIBLE) {
-                        endYear = "present";
-                    } else {
-                        endYear = endYearSpinner.getSelectedItem().toString();
-                    }
-                    WorkExperience workExperience = new WorkExperience(positionET.getText().toString(), companyET.getText().toString(),//
-                            endYearSpinner.getSelectedItem().toString(), endYear, descriptionET.getText().toString());
-                    CreateCVActivity.workExperienceArrayList.add(workExperience);
-                    clearControls(positionET, companyET, descriptionET, startYearSpinner, endYearSpinner, presentCheckBox, labelEndYear);
-                    startActivity(intent);
-                }
-                else{
-                    startActivity(intent);
-                }
-
-            }
-        });
 
         //Eliminarea optiunii de a alege anul daca este in prezent angajat
         presentCheckBox.setOnClickListener(new View.OnClickListener() {
@@ -90,12 +66,48 @@ public class WorkExperienceActivity extends AppCompatActivity {
                     WorkExperience workExperience = new WorkExperience(positionET.getText().toString(), companyET.getText().toString(),//
                             endYearSpinner.getSelectedItem().toString(), endYear, descriptionET.getText().toString());
                     CreateCVActivity.workExperienceArrayList.add(workExperience);
-
+                    clearControls(positionET, companyET, descriptionET, startYearSpinner, endYearSpinner, presentCheckBox, labelEndYear);
                 }
-                clearControls(positionET, companyET, descriptionET, startYearSpinner, endYearSpinner, presentCheckBox, labelEndYear);
+
             }
         });
 
+        toLanguagesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),LanguagesActivity.class);
+                if(!controlsAreEmpty(positionET,companyET)){
+                    String endYear=null;
+                    if (endYearSpinner.getVisibility() == View.INVISIBLE) {
+                        endYear = "present";
+                    } else {
+                        endYear = endYearSpinner.getSelectedItem().toString();
+                    }
+                    WorkExperience workExperience = new WorkExperience(positionET.getText().toString(), companyET.getText().toString(),//
+                            endYearSpinner.getSelectedItem().toString(), endYear, descriptionET.getText().toString());
+                    CreateCVActivity.workExperienceArrayList.add(workExperience);
+                    clearControls(positionET, companyET, descriptionET, startYearSpinner, endYearSpinner, presentCheckBox, labelEndYear);
+                    startActivity(intent);
+                }
+                else{
+                    startActivity(intent);
+                }
+
+            }
+        });
+
+    }
+
+    private void findViewsById() {
+        startYearSpinner = (Spinner) findViewById(R.id.W_startYearSp);
+        endYearSpinner = (Spinner) findViewById(R.id.W_endYearSp);
+        labelEndYear = (TextView) findViewById(R.id.W_endYearL);
+        presentCheckBox = (CheckBox) findViewById(R.id.W_presentCB);
+        addWorkExperienceBtn = (Button) findViewById(R.id.W_addWorkExperienceBtn);
+        positionET = (EditText) findViewById(R.id.W_positionET);
+        companyET = (EditText) findViewById(R.id.W_companyET);
+        descriptionET = (EditText) findViewById(R.id.W_descriptionET);
+        toLanguagesBtn=(Button)findViewById(R.id.W_toLanguages);
     }
 
 

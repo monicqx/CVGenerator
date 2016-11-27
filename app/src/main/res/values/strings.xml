@@ -22,6 +22,12 @@
     <string name="language">Language</string>
     <string name="level">Level</string>
     <string name="cs_skills">IT Skills</string>
+    <string name="createcv_title">Personal Information</string>
+    <string name="education_title">Education</string>
+    <string name="work_experience_title">Work Experience</string>
+    <string name="languages_title">Languages</string>
+    <string name="it_skills_title">IT Skills</string>
+    <string name="other_skills_title">Other Skills</string>
 
     <string-array name="language_levels">
         <item>A1</item>
@@ -31,5 +37,6 @@
         <item>C1</item>
         <item>C2</item>
     </string-array>
+    <string name="title_activity_itskills">ITSkillsActivity</string>
 
 </resources>

@@ -19,7 +19,8 @@
         <activity android:name=".CreateCVActivity" />
         <activity android:name=".EducationActivity" />
         <activity android:name=".WorkExperienceActivity" />
-        <activity android:name=".LanguagesActivity"></activity>
+        <activity android:name=".LanguagesActivity" />
+        <activity android:name=".ITSkillsActivity"></activity>
     </application>
 
 </manifest>
