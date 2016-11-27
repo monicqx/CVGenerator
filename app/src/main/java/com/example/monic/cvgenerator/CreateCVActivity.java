@@ -16,7 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.monic.cvgenerator.Classes.Education;
-import com.example.monic.cvgenerator.Classes.Language;
+import com.example.monic.cvgenerator.Classes.Skill;
 import com.example.monic.cvgenerator.Classes.SocialNetworksFragment;
 import com.example.monic.cvgenerator.Classes.WorkExperience;
 
@@ -33,7 +33,8 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
     public static Map<String, String> socialNetworksMap = new HashMap<>();
     public static ArrayList<Education> educationArrayList = new ArrayList<Education>();
     public static ArrayList<WorkExperience> workExperienceArrayList = new ArrayList<WorkExperience>();
-    public static ArrayList<Language> languagesArrayList = new ArrayList<>();
+    public static ArrayList<Skill> languagesArrayList = new ArrayList<>();
+    public static ArrayList<Skill> itSkillsArrayList = new ArrayList<>();
 
 
     private EditText firstNameET = null;

@@ -5,19 +5,21 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.monic.cvgenerator.Classes.Language;
-import com.example.monic.cvgenerator.Classes.LanguageFragment;
-import com.example.monic.cvgenerator.Classes.LanguagesAdapter;
-import com.example.monic.cvgenerator.Classes.SocialNetworksFragment;
+import com.example.monic.cvgenerator.Classes.Skill;
+import com.example.monic.cvgenerator.Classes.SkillFragment;
+import com.example.monic.cvgenerator.Classes.SkillAdapter;
 
-public class LanguagesActivity extends AppCompatActivity implements LanguageFragment.OnFragmentInteractionListener{
+import java.util.logging.Logger;
+
+public class LanguagesActivity extends AppCompatActivity implements SkillFragment.OnFragmentInteractionListener{
 
 
-    public static LanguagesAdapter languagesAdapter;
+    public static SkillAdapter skillAdapter;
     public static ListView listView;
 
     private Button addNewLanguageBtn=null;
@@ -48,14 +50,14 @@ public class LanguagesActivity extends AppCompatActivity implements LanguageFrag
 
     private void showAddLanguageDialog() {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        LanguageFragment fragment = LanguageFragment.newInstance();
+        SkillFragment fragment = SkillFragment.newInstance();
         fragment.show(fragmentTransaction, "dialog");
     }
 
     private void createLanguagesListAdapter() {
-        languagesAdapter = new LanguagesAdapter(LanguagesActivity.this,R.layout.languages_list_template, CreateCVActivity.languagesArrayList);
+        skillAdapter = new SkillAdapter(LanguagesActivity.this,R.layout.skills_list_template, CreateCVActivity.languagesArrayList);
         listView = (ListView)findViewById(R.id.L_languagesListView);
-        listView.setAdapter(languagesAdapter);
+        listView.setAdapter(skillAdapter);
     }
 
     private void findViewsById() {
@@ -65,6 +67,15 @@ public class LanguagesActivity extends AppCompatActivity implements LanguageFrag
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+        String string=uri.toString();
+        String[] token=string.split(";");
+        if (token.length == 2) {
+            Skill skill=new Skill(token[0],token[1]);
+            CreateCVActivity.languagesArrayList.add(skill);
+            skillAdapter.notifyDataSetChanged();
+        }else{
+            Log.w("languages","Language could not be added to arrayList.");
+        }
 
     }
 

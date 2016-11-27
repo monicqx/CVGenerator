@@ -16,9 +16,9 @@ import java.util.List;
  * Created by monic on 26.11.2016.
  */
 
-public class LanguagesAdapter extends ArrayAdapter<Language> {
+public class SkillAdapter extends ArrayAdapter<Skill> {
 
-    public LanguagesAdapter(Context context, int resource, List<Language> objects) {
+    public SkillAdapter(Context context, int resource, List<Skill> objects) {
         super(context, resource, objects);
     }
 
@@ -27,15 +27,15 @@ public class LanguagesAdapter extends ArrayAdapter<Language> {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.languages_list_template, null);
+            convertView = inflater.inflate(R.layout.skills_list_template, null);
         }
 
-        Language language = getItem(position);
-        TextView languageTV = (TextView)convertView.findViewById(R.id.L_languageTV);
-        TextView levelTV = (TextView) convertView.findViewById(R.id.L_levelTV);
+        Skill skill = getItem(position);
+        TextView skillTV = (TextView)convertView.findViewById(R.id.SkT_skillTV);
+        TextView levelTV = (TextView) convertView.findViewById(R.id.SkT_levelTV);
 
-        languageTV.setText(language.getLanguage());
-        levelTV.setText(language.getLevel()+"");
+        skillTV.setText(skill.getLanguage());
+        levelTV.setText(skill.getLevel());
         return convertView;
     }
 }

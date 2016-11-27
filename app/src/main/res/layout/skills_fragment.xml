@@ -20,12 +20,12 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/language"
+            android:text="@string/skill"
             android:textColor="@color/colorPrimary"
             android:textSize="20dp"/>
 
         <EditText
-            android:id="@+id/Lf_languageET"
+            android:id="@+id/SkF_skillET"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -43,16 +43,16 @@
             android:textSize="20dp"/>
 
         <Spinner
-            android:id="@+id/Lf_levelsSp"
+            android:id="@+id/SkF_levelsSp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"/>
-          <!--  android:entries="@array/language_levels"-->
+            android:layout_marginTop="10dp"
+            android:entries="@array/skill_levels"
+            android:layout_gravity="center"/>
 
-        <!--android:layout_gravity="center"-->
     </GridLayout>
     <Button
-        android:id="@+id/Lf_addLanguageBtn"
+        android:id="@+id/SkF_addSkillBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"

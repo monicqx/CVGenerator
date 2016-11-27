@@ -6,12 +6,15 @@
     <TextView
         android:textSize="20dp"
         android:textColor="@color/colorPrimary"
-        android:id="@+id/L_languageTV"/>
+        android:id="@+id/SkT_skillTV"
+        android:layout_column="0"/>
 
     <TextView
         android:textSize="20dp"
         android:textColor="@color/colorAccent"
-        android:id="@+id/L_levelTV"
-        android:layout_gravity="center"/>
+        android:id="@+id/SkT_levelTV"
+        android:layout_gravity="center"
+        android:layout_column="1"
+        android:gravity="center"/>
 
 </GridLayout>

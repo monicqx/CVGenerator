@@ -4,11 +4,11 @@ package com.example.monic.cvgenerator.Classes;
  * Created by monic on 26.11.2016.
  */
 
-public class Language {
+public class Skill {
     private String language;
     private String level;
 
-    public Language(String language, String level) {
+    public Skill(String language, String level) {
         this.language = language;
         this.level = level;
     }

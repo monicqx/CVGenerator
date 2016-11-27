@@ -85,7 +85,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorAccent" />
+                    android:textColor="@color/colorAccent"
+                    android:inputType="phone"/>
             </LinearLayout>
 
             <LinearLayout
@@ -105,7 +106,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/colorAccent" />
+                    android:textColor="@color/colorAccent"
+                    android:inputType="textEmailAddress"/>
             </LinearLayout>
 
             <LinearLayout
@@ -179,7 +181,8 @@
                     android:id="@+id/C_chooseBirthdayET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="date" />
+                    android:inputType="date"
+                    android:focusableInTouchMode="false"/>
             </LinearLayout>
 
             <Button

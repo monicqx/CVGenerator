@@ -19,7 +19,7 @@
     <string name="position">Position</string>
     <string name="company">Company</string>
     <string name="description">Description</string>
-    <string name="language">Language</string>
+    <string name="skill">Skill</string>
     <string name="level">Level</string>
     <string name="cs_skills">IT Skills</string>
     <string name="createcv_title">Personal Information</string>
@@ -29,13 +29,10 @@
     <string name="it_skills_title">IT Skills</string>
     <string name="other_skills_title">Other Skills</string>
 
-    <string-array name="language_levels">
-        <item>A1</item>
-        <item>A2</item>
-        <item>B1</item>
-        <item>B2</item>
-        <item>C1</item>
-        <item>C2</item>
+    <string-array name="skill_levels">
+        <item>Beginner</item>
+        <item>Medium</item>
+        <item>Advanced</item>
     </string-array>
     <string name="title_activity_itskills">ITSkillsActivity</string>
 
