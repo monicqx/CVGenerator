@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_other_skills"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.monic.cvgenerator.OtherSkillsActivity"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:shadowColor="@color/colorAccent"
+        android:text="@string/other_skills_title"
+        android:textColor="@color/colorHeader"
+        android:textSize="27dp" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="next"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/OS_toCertificatesBtn" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/skill"
+        android:layout_marginTop="15dp"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimary" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:id="@+id/OS_otherSkillET"/>
+
+        <Button
+            android:layout_width="45dp"
+            android:layout_height="35dp"
+            android:layout_gravity="end"
+            android:text="+"
+            android:id="@+id/OS_addNewSkillBtn"
+            android:background="@color/colorHeader"
+            android:layout_column="1"
+            />
+    </GridLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/OS_otherSkillsLV"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary">
+    </ListView>
+</LinearLayout>

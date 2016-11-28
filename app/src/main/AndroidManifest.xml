@@ -20,7 +20,9 @@
         <activity android:name=".EducationActivity" />
         <activity android:name=".WorkExperienceActivity" />
         <activity android:name=".LanguagesActivity" />
-        <activity android:name=".ITSkillsActivity"></activity>
+        <activity android:name=".ITSkillsActivity" />
+        <activity android:name=".OtherSkillsActivity" />
+        <activity android:name=".CertificatesActivity"></activity>
     </application>
 
 </manifest>

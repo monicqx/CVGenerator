@@ -35,6 +35,7 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
     public static ArrayList<WorkExperience> workExperienceArrayList = new ArrayList<WorkExperience>();
     public static ArrayList<Skill> languagesArrayList = new ArrayList<>();
     public static ArrayList<Skill> itSkillsArrayList = new ArrayList<>();
+    public static ArrayList<String> otherSkillsArrayList = new ArrayList<>();
 
 
     private EditText firstNameET = null;

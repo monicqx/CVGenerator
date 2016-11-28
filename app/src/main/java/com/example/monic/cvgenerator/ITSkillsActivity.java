@@ -1,6 +1,7 @@
 package com.example.monic.cvgenerator;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +36,13 @@ public class ITSkillsActivity extends AppCompatActivity implements SkillFragment
             }
         });
 
+        toOtherSkillsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),OtherSkillsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void showAddITSkillDialog() {
