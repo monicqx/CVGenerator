@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import com.example.monic.cvgenerator.CreateCVActivity;
 import com.example.monic.cvgenerator.LanguagesActivity;
@@ -39,13 +40,20 @@ public class SkillFragment extends DialogFragment {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.skills_fragment, container, false);
 
-        Button addLanguageBtn = (Button) view.findViewById(R.id.SkF_addSkillBtn);
+        Button addSkillBtn = (Button) view.findViewById(R.id.SkF_addSkillBtn);
+        final Spinner levelSp = (Spinner)view.findViewById(R.id.SkF_levelsSp);
+        /*ArrayList<String> skillLevels=new ArrayList<>();
+        skillLevels.add("Beginner");
+        skillLevels.add("Medium");
+        skillLevels.add("Advanced");
+        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(view.getContext(),android.R.layout.simple_spinner_dropdown_item,skillLevels);
+        levelSp.setAdapter(arrayAdapter);*/
 
-        addLanguageBtn.setOnClickListener(new View.OnClickListener() {
+        addSkillBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EditText skillET = (EditText) view.findViewById(R.id.SkF_skillET);
-                Spinner levelSp = (Spinner)view.findViewById(R.id.SkF_levelsSp);
+
 
                 if(!emptyControls(skillET)){
                     onButtonPressed(Uri.parse(skillET.getText().toString()+";"+levelSp.getSelectedItem().toString()));
