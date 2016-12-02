@@ -28,6 +28,9 @@
     <string name="languages_title">Languages</string>
     <string name="it_skills_title">IT Skills</string>
     <string name="other_skills_title">Other Skills</string>
+    <string name="certificates_title">Certificates</string>
+    <string name="certificate_name">Name of certificate</string>
+    <string name="year">Year</string>
 
     <string-array name="skill_levels">
         <item>Beginner</item>

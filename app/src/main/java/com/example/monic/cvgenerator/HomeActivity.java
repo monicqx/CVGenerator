@@ -1,8 +1,10 @@
 package com.example.monic.cvgenerator;
 
 import android.content.Intent;
+import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,6 +19,16 @@ public class HomeActivity extends AppCompatActivity {
     public static ArrayList<String> yearsStart = new ArrayList<>();
     public static ArrayList<String> yearsEndEducation = new ArrayList<>();
 
+    public static int height;
+
+    public void ComputeHeight(){
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        //int width = size.x;
+        int h = size.y;
+        height = h;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
