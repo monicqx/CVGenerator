@@ -7,17 +7,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 
-import com.example.monic.cvgenerator.CreateCVActivity;
-import com.example.monic.cvgenerator.LanguagesActivity;
 import com.example.monic.cvgenerator.R;
-
-import java.util.ArrayList;
 
 public class SkillFragment extends DialogFragment {
     private SkillFragment.OnFragmentInteractionListener mListener;
@@ -42,20 +36,13 @@ public class SkillFragment extends DialogFragment {
 
         Button addSkillBtn = (Button) view.findViewById(R.id.SkF_addSkillBtn);
         final Spinner levelSp = (Spinner)view.findViewById(R.id.SkF_levelsSp);
-        /*ArrayList<String> skillLevels=new ArrayList<>();
-        skillLevels.add("Beginner");
-        skillLevels.add("Medium");
-        skillLevels.add("Advanced");
-        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(view.getContext(),android.R.layout.simple_spinner_dropdown_item,skillLevels);
-        levelSp.setAdapter(arrayAdapter);*/
 
         addSkillBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EditText skillET = (EditText) view.findViewById(R.id.SkF_skillET);
 
-
-                if(!emptyControls(skillET)){
+                if(!controlsAreEmpty(skillET)){
                     onButtonPressed(Uri.parse(skillET.getText().toString()+";"+levelSp.getSelectedItem().toString()));
                 }
                 SkillFragment.this.dismiss();
@@ -64,7 +51,7 @@ public class SkillFragment extends DialogFragment {
         return view;
     }
 
-    private boolean emptyControls(EditText skillET) {
+    private boolean controlsAreEmpty(EditText skillET) {
         if(skillET.getText().toString().isEmpty())
             return true;
         return false;

@@ -24,5 +24,13 @@ public class Skill {
     public void setLevel(String level) {
         this.level = level;
     }
+
+    @Override
+    public String toString() {
+        return "Skill{" +
+                "skill='" + skill + '\'' +
+                ", level='" + level + '\'' +
+                '}';
+    }
 }
 

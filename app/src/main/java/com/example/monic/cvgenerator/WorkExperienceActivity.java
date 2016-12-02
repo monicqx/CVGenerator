@@ -16,7 +16,6 @@ import com.example.monic.cvgenerator.Classes.WorkExperience;
 
 public class WorkExperienceActivity extends AppCompatActivity {
 
-    //TODO: figure if there is a necessity to ever clear all the array lists
     private Spinner startYearSpinner=null;
     private Spinner endYearSpinner =null;
     private TextView labelEndYear=null;
@@ -55,7 +54,7 @@ public class WorkExperienceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String endYear=null;
-                if (controlsArePartiallyEmpty(positionET, companyET)) {
+                if (controlsArePartiallyEmpty()) {
                     Toast.makeText(getApplicationContext(),"No empty fields allowed!",Toast.LENGTH_LONG).show();
                 }else{
                     if (endYearSpinner.getVisibility() == View.INVISIBLE) {
@@ -65,8 +64,8 @@ public class WorkExperienceActivity extends AppCompatActivity {
                     }
                     WorkExperience workExperience = new WorkExperience(positionET.getText().toString(), companyET.getText().toString(),//
                             endYearSpinner.getSelectedItem().toString(), endYear, descriptionET.getText().toString());
-                    CreateCVActivity.workExperienceArrayList.add(workExperience);
-                    clearControls(positionET, companyET, descriptionET, startYearSpinner, endYearSpinner, presentCheckBox, labelEndYear);
+                    CreateCVActivity.profile.addWorkExperience(workExperience);
+                    clearControls();
                 }
 
             }
@@ -76,9 +75,9 @@ public class WorkExperienceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(),LanguagesActivity.class);
-                if(allControlsAreEmpty(positionET,companyET)){
+                if(allControlsAreEmpty()){
                     startActivity(intent);
-                }else if(controlsArePartiallyEmpty(positionET,companyET)){
+                }else if(controlsArePartiallyEmpty()){
                     Toast.makeText(getApplicationContext(),"No empty fields allowed!",Toast.LENGTH_LONG).show();
                 }else{
                     String endYear=null;
@@ -89,8 +88,8 @@ public class WorkExperienceActivity extends AppCompatActivity {
                     }
                     WorkExperience workExperience = new WorkExperience(positionET.getText().toString(), companyET.getText().toString(),//
                             endYearSpinner.getSelectedItem().toString(), endYear, descriptionET.getText().toString());
-                    CreateCVActivity.workExperienceArrayList.add(workExperience);
-                    clearControls(positionET, companyET, descriptionET, startYearSpinner, endYearSpinner, presentCheckBox, labelEndYear);
+                    CreateCVActivity.profile.addWorkExperience(workExperience);
+                    clearControls();
                     startActivity(intent);
                 }
 
@@ -99,13 +98,21 @@ public class WorkExperienceActivity extends AppCompatActivity {
 
     }
 
-    private boolean allControlsAreEmpty(EditText positionET, EditText companyET) {
+
+    /**
+     * Checks if all controls are empty.
+     */
+    private boolean allControlsAreEmpty() {
         if(positionET.getText().toString().isEmpty() && companyET.getText().toString().isEmpty())
             return true;
         return false;
     }
 
-    private boolean controlsArePartiallyEmpty(EditText positionET, EditText companyET) {
+
+    /**
+     * Checks if at least one control is empty.
+     */
+    private boolean controlsArePartiallyEmpty() {
         if (positionET.getText().toString().isEmpty())
             return true;
         if (companyET.getText().toString().isEmpty())
@@ -125,7 +132,7 @@ public class WorkExperienceActivity extends AppCompatActivity {
         toLanguagesBtn=(Button)findViewById(R.id.W_toLanguagesBtn);
     }
 
-    private void clearControls(EditText positionET, EditText companyET, EditText descriptionET, Spinner startYearSpinner, Spinner endYearSpinner, CheckBox presentCheckBox, TextView labelEndYear) {
+    private void clearControls() {
         positionET.getText().clear();
         companyET.getText().clear();
         descriptionET.getText().clear();
@@ -138,7 +145,8 @@ public class WorkExperienceActivity extends AppCompatActivity {
 
     /**
      * @param startYearSpinner
-     * @param endYearSpinner   Populates spinners with the ArrayList containing the years.
+     * @param endYearSpinner
+     * Populates spinners with the ArrayList containing the years.
      */
     private void populateSpinners(Spinner startYearSpinner, Spinner endYearSpinner) {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),

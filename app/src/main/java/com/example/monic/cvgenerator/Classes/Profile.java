@@ -10,6 +10,8 @@ public class Profile {
     private String lastName;
     private String telephone;
     private String email;
+    private String sex;
+    private String birthday;
     private Map<String, String> socialNetworksMap;
     private ArrayList<Education> educationArrayList;
     private ArrayList<WorkExperience> workExperienceArrayList;
@@ -18,12 +20,7 @@ public class Profile {
     private ArrayList<String> otherSkillsArrayList;
     private ArrayList<Certificate> certificatesArrayList;
 
-    public Profile(String firstName, String lastName, String telephone, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.telephone = telephone;
-        this.email = email;
-
+    public Profile() {
         socialNetworksMap = new HashMap<>();
         educationArrayList = new ArrayList<>();
         workExperienceArrayList = new ArrayList<>();
@@ -39,6 +36,10 @@ public class Profile {
 
     public void addEducation(Education education) {
         educationArrayList.add(education);
+    }
+
+    public void addWorkExperience(WorkExperience workExperience){
+        workExperienceArrayList.add(workExperience);
     }
 
     public void addLanguage(Skill language) {
@@ -87,6 +88,22 @@ public class Profile {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
     public Map<String, String> getSocialNetworksMap() {
@@ -143,5 +160,24 @@ public class Profile {
 
     public void setCertificatesArrayList(ArrayList<Certificate> certificatesArrayList) {
         this.certificatesArrayList = certificatesArrayList;
+    }
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", email='" + email + '\'' +
+                ", sex='" + sex + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", socialNetworksMap=" + socialNetworksMap +
+                ", educationArrayList=" + educationArrayList +
+                ", workExperienceArrayList=" + workExperienceArrayList +
+                ", languagesArrayList=" + languagesArrayList +
+                ", itSkillsArrayList=" + itSkillsArrayList +
+                ", otherSkillsArrayList=" + otherSkillsArrayList +
+                ", certificatesArrayList=" + certificatesArrayList +
+                '}';
     }
 }

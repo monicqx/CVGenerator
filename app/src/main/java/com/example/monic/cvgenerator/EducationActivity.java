@@ -20,8 +20,8 @@ public class EducationActivity extends AppCompatActivity {
     private EditText schoolET = null;
     private EditText fieldET = null;
     private Button addEducationBtn = null;
-    private Button toWorkExperienceBtn=null;
-    private RadioGroup typeOfStudyRadioGroup=null;
+    private Button toWorkExperienceBtn = null;
+    private RadioGroup typeOfStudyRadioGroup = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,25 +29,21 @@ public class EducationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_education);
 
-        final Intent previousIntent= getIntent();
-
         findViewsById();
-
         populateSpinners(startYearSpinner, endYearSpinner);
 
         //Golirea formularului si crearea unui obiect de tip Education cu datele completate
         addEducationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (controlsAreEmpty(schoolET, fieldET)) {
+                if (controlsAreEmpty()) {
                     Toast.makeText(getApplicationContext(), "No empty fields allowed!", Toast.LENGTH_LONG).show();
                 } else {
-                    String type=((RadioButton) findViewById(typeOfStudyRadioGroup.getCheckedRadioButtonId())).getText().toString();
-                    Education education = new Education(schoolET.getText().toString(), fieldET.getText().toString(), startYearSpinner.getSelectedItem().toString(), endYearSpinner.getSelectedItem().toString(),type);
-                    CreateCVActivity.educationArrayList.add(education);
-                    clearControls(schoolET, fieldET, startYearSpinner, endYearSpinner,typeOfStudyRadioGroup);
+                    String type = ((RadioButton) findViewById(typeOfStudyRadioGroup.getCheckedRadioButtonId())).getText().toString();
+                    Education education = new Education(schoolET.getText().toString(), fieldET.getText().toString(), startYearSpinner.getSelectedItem().toString(), endYearSpinner.getSelectedItem().toString(), type);
+                    CreateCVActivity.profile.addEducation(education);
+                    clearControls();
                 }
-
             }
         });
 
@@ -56,29 +52,26 @@ public class EducationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), WorkExperienceActivity.class);
 
-                if (noEducationAdded() && controlsAreEmpty(schoolET, fieldET)) {
+                if (noEducationAdded() && controlsAreEmpty()) {
                     Toast.makeText(EducationActivity.this, "Please add at least one Education entry.", Toast.LENGTH_LONG).show();
-                } else if (!controlsAreEmpty(schoolET, fieldET)) {
-                    String type=((RadioButton) findViewById(typeOfStudyRadioGroup.getCheckedRadioButtonId())).getText().toString();
-                    Education education = new Education(schoolET.getText().toString(), fieldET.getText().toString(), startYearSpinner.getSelectedItem().toString(), endYearSpinner.getSelectedItem().toString(),type);
-                    CreateCVActivity.educationArrayList.add(education);
-                    clearControls(schoolET, fieldET, startYearSpinner, endYearSpinner, typeOfStudyRadioGroup);
+                } else if (!controlsAreEmpty()) {
+                    String type = ((RadioButton) findViewById(typeOfStudyRadioGroup.getCheckedRadioButtonId())).getText().toString();
+                    Education education = new Education(schoolET.getText().toString(), fieldET.getText().toString(), startYearSpinner.getSelectedItem().toString(), endYearSpinner.getSelectedItem().toString(), type);
+                    CreateCVActivity.profile.addEducation(education);
+                    clearControls();
                     startActivity(intent);
                 } else {
                     startActivity(intent);
                 }
             }
         });
-
-        Toast.makeText(getApplicationContext(), previousIntent.getStringExtra("firstName") + " " + previousIntent.getStringExtra("lastName")//
-                        + " " + previousIntent.getStringExtra("telephone") + " "//
-                        + previousIntent.getStringExtra("email") + " " + previousIntent.getStringExtra("sex")//
-                , Toast.LENGTH_LONG).show();//TODO: remove this
     }
 
-
+    /**
+     * Checks if there isn't any Education object in the education ArrayList
+     */
     private boolean noEducationAdded() {
-        if (CreateCVActivity.educationArrayList.isEmpty())
+        if (CreateCVActivity.profile.getEducationArrayList().isEmpty())
             return true;
         return false;
     }
@@ -90,21 +83,21 @@ public class EducationActivity extends AppCompatActivity {
         schoolET = (EditText) findViewById(R.id.E_schoolET);
         fieldET = (EditText) findViewById(R.id.E_fieldOfStudyET);
         toWorkExperienceBtn = (Button) findViewById(R.id.E_toWorkExperienceBtn);
-        typeOfStudyRadioGroup=(RadioGroup) findViewById(R.id.E_typeOfStudyRadioGr);
+        typeOfStudyRadioGroup = (RadioGroup) findViewById(R.id.E_typeOfStudyRadioGr);
     }
 
-    private boolean controlsAreEmpty(EditText schoolET, EditText fieldET) {
+    private boolean controlsAreEmpty() {
 
         if (schoolET.getText().toString().isEmpty())
             return true;
         if (fieldET.getText().toString().isEmpty())
             return true;
-        if(typeOfStudyRadioGroup.getCheckedRadioButtonId()==-1)
+        if (typeOfStudyRadioGroup.getCheckedRadioButtonId() == -1)
             return true;
         return false;
     }
 
-    private void clearControls(EditText schoolET, EditText fieldET, Spinner startYearSpinner, Spinner endYearSpinner, RadioGroup typeOfStudyRadioGroup) {
+    private void clearControls() {
         schoolET.getText().clear();
         fieldET.getText().clear();
         startYearSpinner.setSelection(0);
@@ -114,7 +107,7 @@ public class EducationActivity extends AppCompatActivity {
 
     /**
      * @param startYearSpinner
-     * @param endYearSpinner   Populates spinners with the ArrayList containing the years.
+     * @param endYearSpinner   Populates spinners with the ArrayLists containing the years.
      */
     private void populateSpinners(Spinner startYearSpinner, Spinner endYearSpinner) {
         ArrayAdapter<String> adapterStart = new ArrayAdapter<String>(getApplicationContext(),

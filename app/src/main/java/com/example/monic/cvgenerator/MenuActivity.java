@@ -8,18 +8,35 @@ import android.widget.Button;
 
 public class MenuActivity extends AppCompatActivity {
 
+    private Button createCVBtn=null;
+    private Button viewCVBtn=null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        Button createCV = (Button)findViewById(R.id.M_createCVBtn);
-        createCV.setOnClickListener(new View.OnClickListener() {
+        findViewsById();
+
+        createCVBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),CreateCVActivity.class);
                 startActivity(intent);
             }
         });
+
+        viewCVBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),ViewCVActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void findViewsById() {
+        createCVBtn=(Button)findViewById(R.id.M_createCVBtn);
+        viewCVBtn=(Button)findViewById(R.id.M_viewCVBtn);
     }
 }

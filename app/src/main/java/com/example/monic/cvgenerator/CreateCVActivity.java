@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.monic.cvgenerator.Classes.Certificate;
 import com.example.monic.cvgenerator.Classes.Education;
+import com.example.monic.cvgenerator.Classes.Profile;
 import com.example.monic.cvgenerator.Classes.Skill;
 import com.example.monic.cvgenerator.Classes.SocialNetworksFragment;
 import com.example.monic.cvgenerator.Classes.WorkExperience;
@@ -30,15 +31,6 @@ import java.util.Map;
 
 public class CreateCVActivity extends AppCompatActivity implements SocialNetworksFragment.OnFragmentInteractionListener {
 
-    //Colectii statice pentru retinere de informatii
-    public static Map<String, String> socialNetworksMap = new HashMap<>();
-    public static ArrayList<Education> educationArrayList = new ArrayList<Education>();
-    public static ArrayList<WorkExperience> workExperienceArrayList = new ArrayList<WorkExperience>();
-    public static ArrayList<Skill> languagesArrayList = new ArrayList<>();
-    public static ArrayList<Skill> itSkillsArrayList = new ArrayList<>();
-    public static ArrayList<String> otherSkillsArrayList = new ArrayList<>();
-    public static ArrayList<Certificate> certificatesArrayList = new ArrayList<>();
-
     private EditText firstNameET = null;
     private EditText lastNameET = null;
     private EditText telephoneET = null;
@@ -51,6 +43,10 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
     private SimpleDateFormat dateFormatter;
     private String birthday =null;
 
+    private Calendar date=null;
+
+    public static Profile profile=null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +56,8 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
 
         findViewsById();
         setDateTimeField();
-        instantiateProfile();
+
+        profile=new Profile();
 
         addSocialNetworkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,26 +69,27 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
         toEducationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Calendar c=Calendar.getInstance();
 
-                if(controlsAreEmpty(firstNameET,lastNameET,telephoneET,emailET,sexRadioGroup,birthdayET)){
+                if(controlsAreEmpty()){
                     Toast.makeText(getApplicationContext(),"No empty fields allowed!",Toast.LENGTH_LONG).show();
-                }else {
+                }else if(!date.before(c)){
+                    Toast.makeText(getApplicationContext(),"fndkfjs",Toast.LENGTH_LONG).show();
+                }
+                else {
                     String sex = ((RadioButton) findViewById(sexRadioGroup.getCheckedRadioButtonId())).getText().toString();
+                    profile.setFirstName(firstNameET.getText().toString());
+                    profile.setLastName(lastNameET.getText().toString());
+                    profile.setTelephone(telephoneET.getText().toString());
+                    profile.setEmail(emailET.getText().toString());
+                    profile.setSex(sex);
+                    profile.setBirthday(birthday);
 
                     Intent intent = new Intent(getApplicationContext(), EducationActivity.class);
-                    intent.putExtra("firstName", firstNameET.getText().toString());
-                    intent.putExtra("lastName", lastNameET.getText().toString());
-                    intent.putExtra("telephone", telephoneET.getText().toString());
-                    intent.putExtra("email", emailET.getText().toString());
-                    intent.putExtra("sex", sex);
-                    intent.putExtra("birthday", birthday);
                     startActivity(intent);
                 }
             }
         });
-    }
-
-    private void instantiateProfile() {
     }
 
     private void showAddSocialNetworkDialog() {
@@ -100,7 +98,7 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
         fragment.show(fragmentTransaction, "dialog");
     }
 
-    private boolean controlsAreEmpty(EditText firstNameET, EditText lastNameET, EditText telephoneET, EditText emailET, RadioGroup sexRadioGroup, EditText birthdayET) {
+    private boolean controlsAreEmpty() {
         if(firstNameET.getText().toString().isEmpty())
             return true;
         if(lastNameET.getText().toString().isEmpty())
@@ -135,7 +133,7 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
 
     }
 
-    private String setDateTimeField() {
+    private void setDateTimeField() {
         birthdayET.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -152,10 +150,10 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, monthOfYear, dayOfMonth);
+                date=newDate;
                 birthdayET.setText(dateFormatter.format(newDate.getTime()));
                 birthday =dateFormatter.format(newDate.getTime()).toString();
             }
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
-        return birthday;
     }
 }

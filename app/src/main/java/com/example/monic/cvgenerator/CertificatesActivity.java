@@ -20,7 +20,7 @@ public class CertificatesActivity extends AppCompatActivity {
     private EditText certificateNameET = null;
     private Spinner certificateYearSpinner = null;
     private Button addCertificateBtn = null;
-    private Button toViewCVBtn = null;
+    private Button finishBtn = null;
     private ListView certificatesLV = null;
     private ArrayList<String> certificatesTextArraylist=null;
 
@@ -39,27 +39,27 @@ public class CertificatesActivity extends AppCompatActivity {
         addCertificateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (controlsAreEmpty(certificateNameET)) {
+                if (controlsAreEmpty()) {
                     Toast.makeText(getApplicationContext(), "No empty fields allowed!", Toast.LENGTH_LONG);
                 } else {
                     Certificate certificate=new Certificate(certificateNameET.getText().toString(),certificateYearSpinner.getSelectedItem().toString());
-                    CreateCVActivity.certificatesArrayList.add(certificate);
+                    CreateCVActivity.profile.addCertificate(certificate);
                     certificatesTextArraylist.add(certificate.toString());
-                    clearControls(certificateNameET,certificateYearSpinner);
+                    clearControls();
                     adapter.notifyDataSetChanged();
                 }
             }
         });
 
-        toViewCVBtn.setOnClickListener(new View.OnClickListener() {
+        finishBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),CertificatesActivity.class);
-                if(!controlsAreEmpty(certificateNameET)){
+                Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
+                if(!controlsAreEmpty()){
                     Certificate certificate=new Certificate(certificateNameET.getText().toString(),certificateYearSpinner.getSelectedItem().toString());
-                    CreateCVActivity.certificatesArrayList.add(certificate);
+                    CreateCVActivity.profile.addCertificate(certificate);
                     certificatesTextArraylist.add(certificate.toString());
-                    clearControls(certificateNameET,certificateYearSpinner);
+                    clearControls();
                     adapter.notifyDataSetChanged();
                 }
                 startActivity(intent);
@@ -67,12 +67,12 @@ public class CertificatesActivity extends AppCompatActivity {
         });
     }
 
-    private void clearControls(EditText certificateNameET, Spinner certificateYearSpinner) {
+    private void clearControls() {
         certificateNameET.getText().clear();
         certificateYearSpinner.setSelection(0);
     }
 
-    private boolean controlsAreEmpty(EditText certificateNameET) {
+    private boolean controlsAreEmpty() {
         if (certificateNameET.getText().toString().isEmpty())
             return true;
         return false;
@@ -82,9 +82,8 @@ public class CertificatesActivity extends AppCompatActivity {
         addCertificateBtn = (Button) findViewById(R.id.CE_addCertificateBtn);
         certificatesLV = (ListView) findViewById(R.id.CE_CertificatesLV);
         certificateYearSpinner = (Spinner) findViewById(R.id.CE_yearSpinner);
-        toViewCVBtn = (Button) findViewById(R.id.CE_toViewCVBtn);
+        finishBtn = (Button) findViewById(R.id.CE_finishBtn);
         certificateNameET = (EditText) findViewById(R.id.CE_nameCertificateET);
-        toViewCVBtn=(Button)findViewById(R.id.CE_toViewCVBtn);
     }
 
     private void populateSpinner(Spinner certificatesSpinner) {

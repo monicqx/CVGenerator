@@ -12,10 +12,6 @@ import com.example.monic.cvgenerator.R;
 
 import java.util.List;
 
-/**
- * Created by monic on 26.11.2016.
- */
-
 public class SkillAdapter extends ArrayAdapter<Skill> {
 
     public SkillAdapter(Context context, int resource, List<Skill> objects) {

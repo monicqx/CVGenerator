@@ -22,7 +22,8 @@
         <activity android:name=".LanguagesActivity" />
         <activity android:name=".ITSkillsActivity" />
         <activity android:name=".OtherSkillsActivity" />
-        <activity android:name=".CertificatesActivity"></activity>
+        <activity android:name=".CertificatesActivity" />
+        <activity android:name=".ViewCVActivity"></activity>
     </application>
 
 </manifest>

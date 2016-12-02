@@ -27,11 +27,11 @@
             android:textSize="27dp" />
 
         <Button
-            android:id="@+id/CE_toViewCVBtn"
+            android:id="@+id/CE_finishBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
-            android:text="@string/to_next_activity"
+            android:text="Finish"
             android:textColor="@color/white"
             android:textSize="20dp" />
     </GridLayout>

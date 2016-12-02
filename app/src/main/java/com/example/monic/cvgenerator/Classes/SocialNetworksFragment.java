@@ -43,36 +43,34 @@ public class SocialNetworksFragment extends DialogFragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // onButtonPressed(Uri.parse(locationEditText.getText().toString()));
 
                 EditText socialNetwork1 = (EditText) view.findViewById(R.id.Sf_socialnetwork1ET);
                 EditText socialNetwork2 = (EditText) view.findViewById(R.id.Sf_socialnetwork2ET);
                 EditText socialNetwork3 = (EditText) view.findViewById(R.id.Sf_socialnetwork3ET);
                 EditText socialNetwork4 = (EditText) view.findViewById(R.id.Sf_socialnetwork4ET);
                 if (!socialNetwork1.getText().toString().isEmpty()) {
-                    CreateCVActivity.socialNetworksMap.put(((TextView) view.findViewById(R.id.Sf_socialNetwork1TV)).getText().toString(), socialNetwork1.getText().toString());
+                    CreateCVActivity.profile.addSocialNetwork(((TextView) view.findViewById(R.id.Sf_socialNetwork1TV)).getText().toString(), socialNetwork1.getText().toString());
                 }
                 if (!socialNetwork2.getText().toString().isEmpty()) {
-                    CreateCVActivity.socialNetworksMap.put(((TextView) view.findViewById(R.id.Sf_socialNetwork2TV)).getText().toString(), socialNetwork2.getText().toString());
+                    CreateCVActivity.profile.addSocialNetwork(((TextView) view.findViewById(R.id.Sf_socialNetwork2TV)).getText().toString(), socialNetwork2.getText().toString());
                 }
                 if (!socialNetwork3.getText().toString().isEmpty()) {
-                    CreateCVActivity.socialNetworksMap.put(((TextView) view.findViewById(R.id.Sf_socialNetwork3TV)).getText().toString(), socialNetwork3.getText().toString());
+                    CreateCVActivity.profile.addSocialNetwork(((TextView) view.findViewById(R.id.Sf_socialNetwork3TV)).getText().toString(), socialNetwork3.getText().toString());
                 }
                 if (!socialNetwork4.getText().toString().isEmpty()) {
-                    CreateCVActivity.socialNetworksMap.put(((TextView) view.findViewById(R.id.Sf_socialNetwork4TV)).getText().toString(), socialNetwork4.getText().toString());
+                    CreateCVActivity.profile.addSocialNetwork(((TextView) view.findViewById(R.id.Sf_socialNetwork4TV)).getText().toString(), socialNetwork4.getText().toString());
                 }
                 SocialNetworksFragment.this.dismiss();
             }
         });
         return view;
     }
-
-    // TODO: Rename method, update argument and hook method into UI event
+/*
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
-    }
+    }*/
 
     @Override
     public void onAttach(Context context) {
@@ -92,7 +90,6 @@ public class SocialNetworksFragment extends DialogFragment {
     }
 
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }
