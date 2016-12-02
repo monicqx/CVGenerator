@@ -2,24 +2,26 @@ package com.example.monic.cvgenerator.Classes;
 
 public class Education {
 
-    private String school;
+    private String schoolName;
     private String fieldOfStudy;
     private String startYear;
     private String endYear;
+    private String type;
 
-    public Education(String school, String fieldOfStudy, String startYear, String endYear) {
-        this.school = school;
+    public Education(String schoolName, String fieldOfStudy, String startYear, String endYear, String type) {
+        this.schoolName = schoolName;
         this.fieldOfStudy = fieldOfStudy;
         this.startYear = startYear;
         this.endYear = endYear;
+        this.type = type;
     }
 
-    public String getSchool() {
-        return school;
+    public String getSchoolName() {
+        return schoolName;
     }
 
-    public void setSchool(String school) {
-        this.school = school;
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
     }
 
     public String getFieldOfStudy() {
@@ -46,10 +48,18 @@ public class Education {
         this.endYear = endYear;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "Education{" +
-                "school='" + school + '\'' +
+                "school='" + schoolName + '\'' +
                 ", fieldOfStudy='" + fieldOfStudy + '\'' +
                 ", startYear='" + startYear + '\'' +
                 ", endYear='" + endYear + '\'' +

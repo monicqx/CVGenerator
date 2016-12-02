@@ -19,16 +19,6 @@ public class HomeActivity extends AppCompatActivity {
     public static ArrayList<String> yearsStart = new ArrayList<>();
     public static ArrayList<String> yearsEndEducation = new ArrayList<>();
 
-    public static int height;
-
-    public void ComputeHeight(){
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        //int width = size.x;
-        int h = size.y;
-        height = h;
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +33,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         computeYearsArray();
-
     }
 
     private void computeYearsArray() {

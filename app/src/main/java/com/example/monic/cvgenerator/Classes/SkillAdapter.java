@@ -34,7 +34,7 @@ public class SkillAdapter extends ArrayAdapter<Skill> {
         TextView skillTV = (TextView)convertView.findViewById(R.id.SkT_skillTV);
         TextView levelTV = (TextView) convertView.findViewById(R.id.SkT_levelTV);
 
-        skillTV.setText(skill.getLanguage());
+        skillTV.setText(skill.getSkill());
         levelTV.setText(skill.getLevel());
         return convertView;
     }

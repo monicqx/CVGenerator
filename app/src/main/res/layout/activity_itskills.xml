@@ -11,14 +11,29 @@
     tools:context="com.example.monic.cvgenerator.ITSkillsActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <GridLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:shadowColor="@color/colorAccent"
-        android:text="@string/it_skills_title"
-        android:textColor="@color/colorHeader"
-        android:textSize="27dp" />
+        android:columnCount="2">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:shadowColor="@color/colorAccent"
+            android:text="@string/it_skills_title"
+            android:textColor="@color/colorHeader"
+            android:textSize="27dp" />
+
+        <Button
+            android:id="@+id/IT_toOtherSkillsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/to_next_activity"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </GridLayout>
 
     <Button
         android:id="@+id/IT_addNewITSkillBtn"
@@ -26,16 +41,10 @@
         android:layout_height="35dp"
         android:layout_gravity="end"
         android:background="@color/colorHeader"
-        android:text="+" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="next"
-        android:textSize="20dp"
-        android:layout_marginTop="20dp"
+        android:text="@string/add"
         android:textColor="@color/white"
-        android:background="@color/colorPrimaryDark"
-        android:id="@+id/IT_toOtherSkillsBtn"/>
+        android:layout_marginTop="@dimen/activity_vertical_margin"/>
+
 
     <ListView
         android:id="@+id/IT_itSkillsListView"

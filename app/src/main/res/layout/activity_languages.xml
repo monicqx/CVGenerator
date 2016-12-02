@@ -10,15 +10,29 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.monic.cvgenerator.LanguagesActivity">
 
-
-    <TextView
-        android:layout_width="wrap_content"
+    <GridLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:shadowColor="@color/colorAccent"
-        android:text="@string/languages_title"
-        android:textColor="@color/colorHeader"
-        android:textSize="27dp" />
+        android:columnCount="2">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:shadowColor="@color/colorAccent"
+            android:text="@string/languages_title"
+            android:textColor="@color/colorHeader"
+            android:textSize="27dp" />
+
+        <Button
+            android:id="@+id/L_toITSkillsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/to_next_activity"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </GridLayout>
 
     <Button
         android:id="@+id/L_addNewLanguageBtn"
@@ -26,23 +40,13 @@
         android:layout_height="35dp"
         android:layout_gravity="end"
         android:background="@color/colorHeader"
-        android:text="+" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="next"
-        android:textSize="20dp"
-        android:layout_marginTop="20dp"
+        android:text="@string/add"
         android:textColor="@color/white"
-        android:background="@color/colorPrimaryDark"
-        android:id="@+id/L_toITSkillsBtn"/>
+        android:layout_marginTop="@dimen/activity_vertical_margin"/>
 
     <ListView
         android:id="@+id/L_languagesListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></ListView>
-
-
 
 </LinearLayout>

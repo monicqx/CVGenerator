@@ -8,25 +8,21 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class OtherSkillsActivity extends AppCompatActivity {
 
     private Button addBtn = null;
     private ListView listView = null;
     private EditText skillET = null;
-    private Button toCertificates = null;
+    private Button toCertificatesBtn = null;
 
-    public void findViewById() {
-        addBtn = (Button) findViewById(R.id.OS_addNewSkillBtn);
-        listView = (ListView) findViewById(R.id.OS_otherSkillsLV);
-        skillET = (EditText) findViewById(R.id.OS_otherSkillET);
-        toCertificates = (Button) findViewById(R.id.OS_toCertificatesBtn);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other_skills);
+
         findViewById();
 
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, CreateCVActivity.otherSkillsArrayList);
@@ -34,19 +30,44 @@ public class OtherSkillsActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!(skillET.getText().toString().isEmpty())) {
+                if (controlsAreEmpty(skillET)) {
+                    Toast.makeText(getApplicationContext(),"No empty fields allowed!",Toast.LENGTH_LONG).show();
+                }else{
                     CreateCVActivity.otherSkillsArrayList.add(skillET.getText().toString());
-                    skillET.getText().clear();
+                    clearControls();
                     adapter.notifyDataSetChanged();
                 }
             }
         });
-        toCertificates.setOnClickListener(new View.OnClickListener() {
+        toCertificatesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),CertificatesActivity.class);
+                if(!controlsAreEmpty(skillET)){
+                    CreateCVActivity.otherSkillsArrayList.add(skillET.getText().toString());
+                    adapter.notifyDataSetChanged();
+                    clearControls();
+                }
                 startActivity(intent);
             }
         });
     }
+
+    public void findViewById() {
+        addBtn = (Button) findViewById(R.id.OS_addNewSkillBtn);
+        listView = (ListView) findViewById(R.id.OS_otherSkillsLV);
+        skillET = (EditText) findViewById(R.id.OS_otherSkillET);
+        toCertificatesBtn = (Button) findViewById(R.id.OS_toCertificatesBtn);
+    }
+
+    private void clearControls() {
+        skillET.getText().clear();
+    }
+
+    private boolean controlsAreEmpty(EditText skillET) {
+        if(skillET.getText().toString().isEmpty())
+            return true;
+        return false;
+    }
+
 }

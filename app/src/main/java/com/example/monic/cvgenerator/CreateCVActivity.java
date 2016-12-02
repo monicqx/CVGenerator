@@ -15,6 +15,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.monic.cvgenerator.Classes.Certificate;
 import com.example.monic.cvgenerator.Classes.Education;
 import com.example.monic.cvgenerator.Classes.Skill;
 import com.example.monic.cvgenerator.Classes.SocialNetworksFragment;
@@ -29,15 +30,14 @@ import java.util.Map;
 
 public class CreateCVActivity extends AppCompatActivity implements SocialNetworksFragment.OnFragmentInteractionListener {
 
-    //Colectii ce retin diverse informatii
+    //Colectii statice pentru retinere de informatii
     public static Map<String, String> socialNetworksMap = new HashMap<>();
     public static ArrayList<Education> educationArrayList = new ArrayList<Education>();
     public static ArrayList<WorkExperience> workExperienceArrayList = new ArrayList<WorkExperience>();
     public static ArrayList<Skill> languagesArrayList = new ArrayList<>();
     public static ArrayList<Skill> itSkillsArrayList = new ArrayList<>();
     public static ArrayList<String> otherSkillsArrayList = new ArrayList<>();
-    public static ArrayList<String> certificatesArrayList = new ArrayList<>();
-
+    public static ArrayList<Certificate> certificatesArrayList = new ArrayList<>();
 
     private EditText firstNameET = null;
     private EditText lastNameET = null;
@@ -50,7 +50,6 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
     private String birthday =null;
-    private String sex=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +60,7 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
 
         findViewsById();
         setDateTimeField();
+        instantiateProfile();
 
         addSocialNetworkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,15 +73,11 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
             @Override
             public void onClick(View v) {
 
-                if (sexRadioGroup.getCheckedRadioButtonId() != -1) //if one of the radio buttons is checked
-                    sex = ((RadioButton) findViewById(sexRadioGroup.getCheckedRadioButtonId())).getText().toString();
-
-                //TODO: check if e-mail; if not ok then make text red
-                //Toast.makeText(getApplicationContext(),socialNetworksMap.get("LinkedIn")+" "+socialNetworksMap.get("Skype"),Toast.LENGTH_LONG).show();
-
                 if(controlsAreEmpty(firstNameET,lastNameET,telephoneET,emailET,sexRadioGroup,birthdayET)){
                     Toast.makeText(getApplicationContext(),"No empty fields allowed!",Toast.LENGTH_LONG).show();
                 }else {
+                    String sex = ((RadioButton) findViewById(sexRadioGroup.getCheckedRadioButtonId())).getText().toString();
+
                     Intent intent = new Intent(getApplicationContext(), EducationActivity.class);
                     intent.putExtra("firstName", firstNameET.getText().toString());
                     intent.putExtra("lastName", lastNameET.getText().toString());
@@ -93,7 +89,9 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
                 }
             }
         });
+    }
 
+    private void instantiateProfile() {
     }
 
     private void showAddSocialNetworkDialog() {
@@ -160,6 +158,4 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
         return birthday;
     }
-
-
 }

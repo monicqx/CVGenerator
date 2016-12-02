@@ -55,7 +55,7 @@ public class WorkExperienceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String endYear=null;
-                if (controlsAreEmpty(positionET, companyET)) {
+                if (controlsArePartiallyEmpty(positionET, companyET)) {
                     Toast.makeText(getApplicationContext(),"No empty fields allowed!",Toast.LENGTH_LONG).show();
                 }else{
                     if (endYearSpinner.getVisibility() == View.INVISIBLE) {
@@ -76,7 +76,11 @@ public class WorkExperienceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(),LanguagesActivity.class);
-                if(!controlsAreEmpty(positionET,companyET)){
+                if(allControlsAreEmpty(positionET,companyET)){
+                    startActivity(intent);
+                }else if(controlsArePartiallyEmpty(positionET,companyET)){
+                    Toast.makeText(getApplicationContext(),"No empty fields allowed!",Toast.LENGTH_LONG).show();
+                }else{
                     String endYear=null;
                     if (endYearSpinner.getVisibility() == View.INVISIBLE) {
                         endYear = "present";
@@ -89,13 +93,24 @@ public class WorkExperienceActivity extends AppCompatActivity {
                     clearControls(positionET, companyET, descriptionET, startYearSpinner, endYearSpinner, presentCheckBox, labelEndYear);
                     startActivity(intent);
                 }
-                else{
-                    startActivity(intent);
-                }
 
             }
         });
 
+    }
+
+    private boolean allControlsAreEmpty(EditText positionET, EditText companyET) {
+        if(positionET.getText().toString().isEmpty() && companyET.getText().toString().isEmpty())
+            return true;
+        return false;
+    }
+
+    private boolean controlsArePartiallyEmpty(EditText positionET, EditText companyET) {
+        if (positionET.getText().toString().isEmpty())
+            return true;
+        if (companyET.getText().toString().isEmpty())
+            return true;
+        return false;
     }
 
     private void findViewsById() {
@@ -107,9 +122,8 @@ public class WorkExperienceActivity extends AppCompatActivity {
         positionET = (EditText) findViewById(R.id.W_positionET);
         companyET = (EditText) findViewById(R.id.W_companyET);
         descriptionET = (EditText) findViewById(R.id.W_descriptionET);
-        toLanguagesBtn=(Button)findViewById(R.id.W_toLanguages);
+        toLanguagesBtn=(Button)findViewById(R.id.W_toLanguagesBtn);
     }
-
 
     private void clearControls(EditText positionET, EditText companyET, EditText descriptionET, Spinner startYearSpinner, Spinner endYearSpinner, CheckBox presentCheckBox, TextView labelEndYear) {
         positionET.getText().clear();
@@ -120,14 +134,6 @@ public class WorkExperienceActivity extends AppCompatActivity {
         presentCheckBox.setChecked(false);
         endYearSpinner.setVisibility(View.VISIBLE);
         labelEndYear.setVisibility(View.VISIBLE);
-    }
-
-    private boolean controlsAreEmpty(EditText positionET, EditText companyET) {
-        if (positionET.getText().toString().isEmpty())
-            return true;
-        if (companyET.getText().toString().isEmpty())
-            return true;
-        return false;
     }
 
     /**

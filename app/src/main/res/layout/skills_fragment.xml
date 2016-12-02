@@ -7,7 +7,7 @@
     android:layout_marginLeft="@dimen/activity_horizontal_margin"
     android:layout_marginRight="@dimen/activity_horizontal_margin"
     android:layout_marginTop="@dimen/activity_vertical_margin"
-    android:minHeight="330dp"
+    android:minHeight="180dp"
     android:minWidth="450dp"
     android:orientation="vertical">
 

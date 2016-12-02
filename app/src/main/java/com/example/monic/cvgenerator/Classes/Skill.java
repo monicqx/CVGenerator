@@ -1,24 +1,20 @@
 package com.example.monic.cvgenerator.Classes;
 
-/**
- * Created by monic on 26.11.2016.
- */
-
 public class Skill {
-    private String language;
+    private String skill;
     private String level;
 
-    public Skill(String language, String level) {
-        this.language = language;
+    public Skill(String skill, String level) {
+        this.skill = skill;
         this.level = level;
     }
 
-    public String getLanguage() {
-        return language;
+    public String getSkill() {
+        return skill;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setSkill(String skill) {
+        this.skill = skill;
     }
 
     public String getLevel() {
