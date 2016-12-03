@@ -1,22 +1,299 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_view_cv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.monic.cvgenerator.ViewCVActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minLines="10"
-        android:id="@+id/VCV_cv"
-        />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:id="@+id/VCV_gridLayout">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:gravity="center"
+                android:shadowColor="@color/colorAccent"
+                android:text="@string/createcv_title"
+                android:textColor="@color/colorSubtitle"
+                android:textSize="27dp" />
+
+            <TextView
+                android:id="@+id/VCV_nameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:text="@string/telephone"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/VCV_telephoneTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:text="@string/email"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/VCV_emailTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:text="@string/sex"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/VCV_sexTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:text="@string/birthday"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/VCV_birthdayTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/VCV_socialNetworksTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:text="@string/social_networks"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/VCV_socialNetworksTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:minLines="1"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:shadowColor="@color/colorAccent"
+                android:text="@string/education_title"
+                android:textColor="@color/colorSubtitle"
+                android:textSize="27dp" />
+
+            <TextView
+                android:id="@+id/VCV_educationTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:minLines="2"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/VCV_workExperienceLine"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/VCV_workExperienceTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:shadowColor="@color/colorAccent"
+                android:text="@string/work_experience_title"
+                android:textColor="@color/colorSubtitle"
+                android:textSize="27dp" />
+
+            <TextView
+                android:id="@+id/VCV_workExperienceTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:minLines="2"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/VCV_languagesLine"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/VCV_languagesTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:shadowColor="@color/colorAccent"
+                android:text="@string/languages_title"
+                android:textColor="@color/colorSubtitle"
+                android:textSize="27dp" />
+
+            <TextView
+                android:id="@+id/VCV_languagesTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:minLines="2"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/VCV_itSkillsLine"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/VCV_itSkillsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:shadowColor="@color/colorAccent"
+                android:text="@string/it_skills_title"
+                android:textColor="@color/colorSubtitle"
+                android:textSize="27dp" />
+
+            <TextView
+                android:id="@+id/VCV_itSkillsTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:minLines="2"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/VCV_otherSkillsLine"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/VCV_otherSkillsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:shadowColor="@color/colorAccent"
+                android:text="@string/other_skills_title"
+                android:textColor="@color/colorSubtitle"
+                android:textSize="27dp" />
+
+            <TextView
+                android:id="@+id/VCV_otherSkillsTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:minLines="2"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/VCV_certificatesLine"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/VCV_certificatesTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:shadowColor="@color/colorAccent"
+                android:text="@string/certificates_title"
+                android:textColor="@color/colorSubtitle"
+                android:textSize="27dp" />
+
+            <TextView
+                android:id="@+id/VCV_certificatesTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:minLines="2"
+                android:textSize="20dp" />
+        </GridLayout>
     </ScrollView>
-</RelativeLayout>
+</LinearLayout>

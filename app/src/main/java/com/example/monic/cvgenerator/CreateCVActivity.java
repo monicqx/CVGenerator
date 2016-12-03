@@ -41,9 +41,7 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
     private Button toEducationBtn=null;
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
-    private String birthday =null;
-
-    private Calendar date=null;
+    private Calendar birthday=null;
 
     public static Profile profile=null;
 
@@ -73,20 +71,22 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
 
                 if(controlsAreEmpty()){
                     Toast.makeText(getApplicationContext(),"No empty fields allowed!",Toast.LENGTH_LONG).show();
-                }else if(!date.before(c)){
-                    Toast.makeText(getApplicationContext(),"fndkfjs",Toast.LENGTH_LONG).show();
                 }
                 else {
-                    String sex = ((RadioButton) findViewById(sexRadioGroup.getCheckedRadioButtonId())).getText().toString();
-                    profile.setFirstName(firstNameET.getText().toString());
-                    profile.setLastName(lastNameET.getText().toString());
-                    profile.setTelephone(telephoneET.getText().toString());
-                    profile.setEmail(emailET.getText().toString());
-                    profile.setSex(sex);
-                    profile.setBirthday(birthday);
+                    if(!birthday.before(c)){    //if brithday is not set before today
+                        Toast.makeText(getApplicationContext(),"Please enter a valid birthday.",Toast.LENGTH_LONG).show();
+                    }else {
+                        String sex = ((RadioButton) findViewById(sexRadioGroup.getCheckedRadioButtonId())).getText().toString();
+                        profile.setFirstName(firstNameET.getText().toString());
+                        profile.setLastName(lastNameET.getText().toString());
+                        profile.setTelephone(telephoneET.getText().toString());
+                        profile.setEmail(emailET.getText().toString());
+                        profile.setSex(sex);
+                        profile.setBirthday(dateFormatter.format(birthday.getTime()).toString());
 
-                    Intent intent = new Intent(getApplicationContext(), EducationActivity.class);
-                    startActivity(intent);
+                        Intent intent = new Intent(getApplicationContext(), EducationActivity.class);
+                        startActivity(intent);
+                    }
                 }
             }
         });
@@ -142,17 +142,14 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
                 }
             }
         });
-
         Calendar newCalendar = Calendar.getInstance();
-
         datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, monthOfYear, dayOfMonth);
-                date=newDate;
+                birthday=newDate;
                 birthdayET.setText(dateFormatter.format(newDate.getTime()));
-                birthday =dateFormatter.format(newDate.getTime()).toString();
             }
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
     }
