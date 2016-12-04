@@ -38,7 +38,7 @@ public class ViewCVActivity extends AppCompatActivity {
 
         findViewsById();
 
-        if(CreateCVActivity.profile!=null){
+        if(CreateCVActivity.profile!=null && isProfileComplete(CreateCVActivity.profile)){
             populateTextViews(CreateCVActivity.profile);
         }else{
             Toast.makeText(getApplicationContext(),"You must create your CV first!",Toast.LENGTH_LONG).show();
@@ -46,6 +46,30 @@ public class ViewCVActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * @param profile
+     * Checks if the mandatory fields of the CV have been instantiated
+     */
+    private boolean isProfileComplete(Profile profile) {
+        if(profile.getFirstName()==null)
+            return false;
+        if(profile.getLastName()==null)
+            return false;
+        if(profile.getTelephone()==null)
+            return false;
+        if(profile.getEmail()==null)
+            return false;
+        if(profile.getBirthday()==null)
+            return false;
+        if(profile.getSex()==null)
+            return false;
+        return true;
+    }
+
+    /**
+     * @param profile
+     * Adds all the information from the Profile object to text views.
+     */
     private void populateTextViews(Profile profile) {
         nameTV.setText(profile.getFirstName()+" "+profile.getLastName());
         telephoneTV.setText(profile.getTelephone());
@@ -66,8 +90,12 @@ public class ViewCVActivity extends AppCompatActivity {
             socialNetworksTV.setText(socialNetworkString.toString());
         }
 
-        StringBuilder educationString=computeEducationText(profile.getEducationArrayList());
-        educationTV.setText(educationString);
+        if(profile.getEducationArrayList().isEmpty()){
+            changeVisibilityOfControls(findViewById(R.id.VCV_educationLine),(TextView)findViewById(R.id.VCV_educationTV),educationTV);
+        }else {
+            StringBuilder educationString=computeEducationText(profile.getEducationArrayList());
+            educationTV.setText(educationString);
+        }
 
         if(profile.getWorkExperienceArrayList().isEmpty()){
             changeVisibilityOfControls(findViewById(R.id.VCV_workExperienceLine),(TextView)findViewById(R.id.VCV_workExperienceTitle),workExperienceTV);
@@ -143,12 +171,6 @@ public class ViewCVActivity extends AppCompatActivity {
         return languagesString;
     }
 
-    private void changeVisibilityOfControls(View view, TextView textView1, TextView textView2) {
-        view.setVisibility(View.GONE);
-        textView1.setVisibility(View.GONE);
-        textView2.setVisibility(View.GONE);
-    }
-
     private StringBuilder computeWorkExperienceText(ArrayList<WorkExperience> workExperienceArrayList) {
         StringBuilder workExperienceString=new StringBuilder();
         for(WorkExperience workExperience:workExperienceArrayList){
@@ -181,6 +203,18 @@ public class ViewCVActivity extends AppCompatActivity {
             socialNetworkString.append(entry.getKey()+": "+entry.getValue()+"\n");
         }
         return socialNetworkString;
+    }
+
+    /**
+     * @param view
+     * @param textView1
+     * @param textView2
+     * Changes the visibility of views to GONE.
+     */
+    private void changeVisibilityOfControls(View view, TextView textView1, TextView textView2) {
+        view.setVisibility(View.GONE);
+        textView1.setVisibility(View.GONE);
+        textView2.setVisibility(View.GONE);
     }
 
     private void findViewsById() {

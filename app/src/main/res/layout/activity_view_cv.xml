@@ -128,7 +128,8 @@
                 android:layout_height="2dp"
                 android:layout_columnSpan="2"
                 android:layout_marginTop="5dp"
-                android:background="@android:color/darker_gray" />
+                android:background="@android:color/darker_gray"
+                android:id="@+id/VCV_educationLine"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -140,7 +141,8 @@
                 android:shadowColor="@color/colorAccent"
                 android:text="@string/education_title"
                 android:textColor="@color/colorSubtitle"
-                android:textSize="27dp" />
+                android:textSize="27dp"
+                android:id="@+id/VCV_educationTitle"/>
 
             <TextView
                 android:id="@+id/VCV_educationTV"
