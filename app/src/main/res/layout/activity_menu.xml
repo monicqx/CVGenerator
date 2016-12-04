@@ -4,45 +4,60 @@
     android:id="@+id/activity_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.monic.cvgenerator.MenuActivity"
     android:orientation="vertical"
-    >
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.monic.cvgenerator.MenuActivity">
 
-    <Button
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Create CV"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:background="@color/colorButtonMediumDark"
-        android:height="70dp"
-        android:id="@+id/M_createCVBtn"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View CV"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:background="@color/colorButtonMedium"
-        android:height="70dp"
-        android:id="@+id/M_viewCVBtn"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Edit CV"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:background="@color/colorButtonLightMedium"
-        android:height="70dp"
-        android:id="@+id/M_editCVBtn"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tips"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:background="@color/colorButtonLight"
-        android:height="70dp"
-        android:id="@+id/M_tipsCVBtn"/>
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/M_createCVBtn"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:height="70dp"
+                android:background="@color/colorButtonMediumDark"
+                android:text="Create CV"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/M_viewCVBtn"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:height="70dp"
+                android:background="@color/colorButtonMedium"
+                android:text="View CV"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/M_editCVBtn"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:height="70dp"
+                android:background="@color/colorButtonLightMedium"
+                android:text="Edit CV"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/M_tipsCVBtn"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:height="70dp"
+                android:background="@color/colorButtonLight"
+                android:text="Tips"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
