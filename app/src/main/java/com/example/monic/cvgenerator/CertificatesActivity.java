@@ -17,8 +17,6 @@ import java.util.ArrayList;
 
 public class CertificatesActivity extends AppCompatActivity {
 
-    //TODO: add toast to congratulate the user
-
     private EditText certificateNameET = null;
     private Spinner certificateYearSpinner = null;
     private Button addCertificateBtn = null;

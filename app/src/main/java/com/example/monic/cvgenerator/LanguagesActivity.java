@@ -76,7 +76,6 @@ public class LanguagesActivity extends AppCompatActivity implements SkillFragmen
         }else{
             Log.w("languages","Language could not be added to arrayList.");
         }
-
     }
 
 }

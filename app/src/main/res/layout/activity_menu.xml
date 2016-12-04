@@ -15,7 +15,7 @@
         android:text="Create CV"
         android:textSize="20dp"
         android:textColor="@color/white"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorButtonMediumDark"
         android:height="70dp"
         android:id="@+id/M_createCVBtn"/>
     <Button
@@ -27,4 +27,22 @@
         android:background="@color/colorButtonMedium"
         android:height="70dp"
         android:id="@+id/M_viewCVBtn"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit CV"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:background="@color/colorButtonLightMedium"
+        android:height="70dp"
+        android:id="@+id/M_editCVBtn"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tips"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:background="@color/colorButtonLight"
+        android:height="70dp"
+        android:id="@+id/M_tipsCVBtn"/>
 </LinearLayout>

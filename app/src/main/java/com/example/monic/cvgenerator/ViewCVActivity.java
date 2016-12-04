@@ -44,7 +44,6 @@ public class ViewCVActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"You must create your CV first!",Toast.LENGTH_LONG).show();
             ((GridLayout)findViewById(R.id.VCV_gridLayout)).setVisibility(View.GONE);
         }
-
     }
 
     private void populateTextViews(Profile profile) {

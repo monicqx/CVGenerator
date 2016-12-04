@@ -5,6 +5,9 @@
     <color name="colorAccent">#ca8ea3</color>
     <color name="colorHeader">#695a63</color>
     <color name="white">#ffffff</color>
-    <color name="colorButtonMedium">#5c0b28</color>
+    <color name="colorButtonMediumDark">#541d31</color>
+    <color name="colorButtonMedium">#68283f</color>
+    <color name="colorButtonLightMedium">#8b405b</color>
+    <color name="colorButtonLight">#b65b7b</color>
     <color name="colorSubtitle">#ba8900</color>
 </resources>
