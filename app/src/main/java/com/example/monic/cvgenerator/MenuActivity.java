@@ -8,8 +8,9 @@ import android.widget.Button;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private Button createCVBtn=null;
-    private Button viewCVBtn=null;
+    private Button createCVBtn = null;
+    private Button viewCVBtn = null;
+    private Button cvTipsBtn=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,7 @@ public class MenuActivity extends AppCompatActivity {
         createCVBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),CreateCVActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CreateCVActivity.class);
                 startActivity(intent);
             }
         });
@@ -29,14 +30,23 @@ public class MenuActivity extends AppCompatActivity {
         viewCVBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(),ViewCVActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ViewCVActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        cvTipsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),TipsActivity.class);
                 startActivity(intent);
             }
         });
     }
 
     private void findViewsById() {
-        createCVBtn=(Button)findViewById(R.id.M_createCVBtn);
-        viewCVBtn=(Button)findViewById(R.id.M_viewCVBtn);
+        createCVBtn = (Button) findViewById(R.id.M_createCVBtn);
+        viewCVBtn = (Button) findViewById(R.id.M_viewCVBtn);
+        cvTipsBtn=(Button)findViewById(R.id.M_tipsCVBtn);
     }
 }

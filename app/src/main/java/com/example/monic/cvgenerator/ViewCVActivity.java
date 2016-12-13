@@ -146,7 +146,7 @@ public class ViewCVActivity extends AppCompatActivity {
     private StringBuilder computeOtherSkillsText(ArrayList<String> otherSkillsArrayList) {
         StringBuilder otherSkillsString=new StringBuilder();
         for(String skill:otherSkillsArrayList){
-            otherSkillsString.append("Skill: "+skill+"\n");
+            otherSkillsString.append(skill+"\n");
         }
         return otherSkillsString;
     }
