@@ -60,9 +60,13 @@ public class HomeActivity extends AppCompatActivity {
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String selection=userSp.getSelectedItem().toString();
-                getInfoFromDB(selection);
-                Intent intent=new Intent(getApplicationContext(),MenuActivity.class);
+                String selection = null;
+                if(userSp.getSelectedItem()!=null)
+                    selection=userSp.getSelectedItem().toString();
+                if(selection!=null) {
+                    getInfoFromDB(selection);
+                }
+                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
                 startActivity(intent);
             }
         });

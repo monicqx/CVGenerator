@@ -21,7 +21,6 @@ public class MenuActivity extends AppCompatActivity {
 
         findViewsById();
 
-        Toast.makeText(this, HomeActivity.profile.getFirstName()+"; "+HomeActivity.profile.getSex()+"; "+HomeActivity.profile.getBirthday(), Toast.LENGTH_SHORT).show();
 
         createCVBtn.setOnClickListener(new View.OnClickListener() {
             @Override
