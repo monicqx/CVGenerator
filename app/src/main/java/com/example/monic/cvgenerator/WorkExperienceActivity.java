@@ -64,7 +64,7 @@ public class WorkExperienceActivity extends AppCompatActivity {
                     }
                     WorkExperience workExperience = new WorkExperience(positionET.getText().toString(), companyET.getText().toString(),//
                             endYearSpinner.getSelectedItem().toString(), endYear, descriptionET.getText().toString());
-                    CreateCVActivity.profile.addWorkExperience(workExperience);
+                    HomeActivity.profile.addWorkExperience(workExperience);
                     clearControls();
                 }
 
@@ -88,7 +88,7 @@ public class WorkExperienceActivity extends AppCompatActivity {
                     }
                     WorkExperience workExperience = new WorkExperience(positionET.getText().toString(), companyET.getText().toString(),//
                             endYearSpinner.getSelectedItem().toString(), endYear, descriptionET.getText().toString());
-                    CreateCVActivity.profile.addWorkExperience(workExperience);
+                    HomeActivity.profile.addWorkExperience(workExperience);
                     clearControls();
                     startActivity(intent);
                 }

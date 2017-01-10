@@ -41,7 +41,7 @@ public class EducationActivity extends AppCompatActivity {
                 } else {
                     String type = ((RadioButton) findViewById(typeOfStudyRadioGroup.getCheckedRadioButtonId())).getText().toString();
                     Education education = new Education(schoolET.getText().toString(), fieldET.getText().toString(), startYearSpinner.getSelectedItem().toString(), endYearSpinner.getSelectedItem().toString(), type);
-                    CreateCVActivity.profile.addEducation(education);
+                    HomeActivity.profile.addEducation(education);
                     clearControls();
                 }
             }
@@ -57,7 +57,7 @@ public class EducationActivity extends AppCompatActivity {
                 } else if (!controlsAreEmpty()) {
                     String type = ((RadioButton) findViewById(typeOfStudyRadioGroup.getCheckedRadioButtonId())).getText().toString();
                     Education education = new Education(schoolET.getText().toString(), fieldET.getText().toString(), startYearSpinner.getSelectedItem().toString(), endYearSpinner.getSelectedItem().toString(), type);
-                    CreateCVActivity.profile.addEducation(education);
+                    HomeActivity.profile.addEducation(education);
                     clearControls();
                     startActivity(intent);
                 } else {
@@ -71,7 +71,7 @@ public class EducationActivity extends AppCompatActivity {
      * Checks if there isn't any Education object in the education ArrayList
      */
     private boolean noEducationAdded() {
-        if (CreateCVActivity.profile.getEducationArrayList().isEmpty())
+        if (HomeActivity.profile.getEducationArrayList().isEmpty())
             return true;
         return false;
     }

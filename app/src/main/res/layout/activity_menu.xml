@@ -39,12 +39,12 @@
                 android:textSize="25dp" />
 
             <Button
-                android:id="@+id/M_editCVBtn"
+                android:id="@+id/M_generateXMLBtn"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:height="70dp"
                 android:background="@color/colorButtonLightMedium"
-                android:text="Edit CV"
+                android:text="Generate XML"
                 android:textColor="@color/white"
                 android:textSize="25dp" />
 

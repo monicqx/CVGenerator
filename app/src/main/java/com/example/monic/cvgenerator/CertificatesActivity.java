@@ -43,7 +43,7 @@ public class CertificatesActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "No empty fields allowed!", Toast.LENGTH_LONG);
                 } else {
                     Certificate certificate=new Certificate(certificateNameET.getText().toString(),certificateYearSpinner.getSelectedItem().toString());
-                    CreateCVActivity.profile.addCertificate(certificate);
+                    HomeActivity.profile.addCertificate(certificate);
                     certificatesTextArraylist.add(certificate.toString());
                     clearControls();
                     adapter.notifyDataSetChanged();
@@ -57,7 +57,7 @@ public class CertificatesActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
                 if(!controlsAreEmpty()){
                     Certificate certificate=new Certificate(certificateNameET.getText().toString(),certificateYearSpinner.getSelectedItem().toString());
-                    CreateCVActivity.profile.addCertificate(certificate);
+                    HomeActivity.profile.addCertificate(certificate);
                     certificatesTextArraylist.add(certificate.toString());
                     clearControls();
                     adapter.notifyDataSetChanged();

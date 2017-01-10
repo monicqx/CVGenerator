@@ -53,7 +53,7 @@ public class ITSkillsActivity extends AppCompatActivity implements SkillFragment
 
 
     private void createITSkillsListAdapter() {
-        skillAdapter = new SkillAdapter(ITSkillsActivity.this,R.layout.skills_list_template, CreateCVActivity.profile.getItSkillsArrayList());
+        skillAdapter = new SkillAdapter(ITSkillsActivity.this,R.layout.skills_list_template, HomeActivity.profile.getItSkillsArrayList());
         listView = (ListView)findViewById(R.id.IT_itSkillsListView);
         listView.setAdapter(skillAdapter);
     }
@@ -69,7 +69,7 @@ public class ITSkillsActivity extends AppCompatActivity implements SkillFragment
         String[] token=string.split(";");
         if (token.length == 2) {
             Skill skill=new Skill(token[0],token[1]);
-            CreateCVActivity.profile.addITSkill(skill);
+            HomeActivity.profile.addITSkill(skill);
             skillAdapter.notifyDataSetChanged();
         }else{
             Log.w("itskills","IT skills could not be added to arrayList.");

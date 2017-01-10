@@ -25,7 +25,7 @@ public class OtherSkillsActivity extends AppCompatActivity {
 
         findViewsById();
 
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, CreateCVActivity.profile.getOtherSkillsArrayList());
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, HomeActivity.profile.getOtherSkillsArrayList());
         listView.setAdapter(adapter);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +33,7 @@ public class OtherSkillsActivity extends AppCompatActivity {
                 if (controlsAreEmpty()) {
                     Toast.makeText(getApplicationContext(),"No empty fields allowed!",Toast.LENGTH_LONG).show();
                 }else{
-                    CreateCVActivity.profile.addOtherSkill(skillET.getText().toString());
+                    HomeActivity.profile.addOtherSkill(skillET.getText().toString());
                     clearControls();
                     adapter.notifyDataSetChanged();
                 }
@@ -44,7 +44,7 @@ public class OtherSkillsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),CertificatesActivity.class);
                 if(!controlsAreEmpty()){
-                    CreateCVActivity.profile.addOtherSkill(skillET.getText().toString());
+                    HomeActivity.profile.addOtherSkill(skillET.getText().toString());
                     adapter.notifyDataSetChanged();
                     clearControls();
                 }

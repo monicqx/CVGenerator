@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.monic.cvgenerator">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,7 +26,8 @@
         <activity android:name=".OtherSkillsActivity" />
         <activity android:name=".CertificatesActivity" />
         <activity android:name=".ViewCVActivity" />
-        <activity android:name=".TipsActivity"></activity>
+        <activity android:name=".TipsActivity" />
+        <activity android:name=".ViewXMLActivity"></activity>
     </application>
 
 </manifest>

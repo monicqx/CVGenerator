@@ -43,7 +43,7 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
     private SimpleDateFormat dateFormatter;
     private Calendar birthday=null;
 
-    public static Profile profile=null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,7 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
         findViewsById();
         setDateTimeField();
 
-        profile=new Profile();
+        HomeActivity.profile=new Profile(); //cream o noua instanta a obiectului de tip Profile.
 
         addSocialNetworkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,16 +73,19 @@ public class CreateCVActivity extends AppCompatActivity implements SocialNetwork
                     Toast.makeText(getApplicationContext(),"No empty fields allowed!",Toast.LENGTH_LONG).show();
                 }
                 else {
-                    if(!birthday.before(c)){    //if brithday is not set before today
+                    if(!birthday.before(c)){    //daca data de nastere nu este in trecut
                         Toast.makeText(getApplicationContext(),"Please enter a valid birthday.",Toast.LENGTH_LONG).show();
-                    }else {
+                    }else if(firstNameET.getText().toString().contains(";") || lastNameET.getText().toString().contains(";")){
+                        Toast.makeText(getApplicationContext(), "Name must not contain ';'", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
                         String sex = ((RadioButton) findViewById(sexRadioGroup.getCheckedRadioButtonId())).getText().toString();
-                        profile.setFirstName(firstNameET.getText().toString());
-                        profile.setLastName(lastNameET.getText().toString());
-                        profile.setTelephone(telephoneET.getText().toString());
-                        profile.setEmail(emailET.getText().toString());
-                        profile.setSex(sex);
-                        profile.setBirthday(dateFormatter.format(birthday.getTime()).toString());
+                        HomeActivity.profile.setFirstName(firstNameET.getText().toString());
+                        HomeActivity.profile.setLastName(lastNameET.getText().toString());
+                        HomeActivity.profile.setTelephone(telephoneET.getText().toString());
+                        HomeActivity.profile.setEmail(emailET.getText().toString());
+                        HomeActivity.profile.setSex(sex);
+                        HomeActivity.profile.setBirthday(dateFormatter.format(birthday.getTime()).toString());
 
                         Intent intent = new Intent(getApplicationContext(), EducationActivity.class);
                         startActivity(intent);

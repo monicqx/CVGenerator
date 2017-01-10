@@ -38,8 +38,8 @@ public class ViewCVActivity extends AppCompatActivity {
 
         findViewsById();
 
-        if(CreateCVActivity.profile!=null && isProfileComplete(CreateCVActivity.profile)){
-            populateTextViews(CreateCVActivity.profile);
+        if(HomeActivity.profile!=null && isProfileComplete(HomeActivity.profile)){
+            populateTextViews(HomeActivity.profile);
         }else{
             Toast.makeText(getApplicationContext(),"You must create your CV first!",Toast.LENGTH_LONG).show();
             ((GridLayout)findViewById(R.id.VCV_gridLayout)).setVisibility(View.GONE);
@@ -50,7 +50,7 @@ public class ViewCVActivity extends AppCompatActivity {
      * @param profile
      * Checks if the mandatory fields of the CV have been instantiated
      */
-    private boolean isProfileComplete(Profile profile) {
+    public static boolean isProfileComplete(Profile profile) {
         if(profile.getFirstName()==null)
             return false;
         if(profile.getLastName()==null)
@@ -80,8 +80,6 @@ public class ViewCVActivity extends AppCompatActivity {
             sexTV.setText("Female");
         else if(profile.getSex().equals("M"))
             sexTV.setText("Male");
-
-
         if(profile.getSocialNetworksMap().isEmpty()){
             socialNetworksTV.setVisibility(View.GONE);
             findViewById(R.id.VCV_socialNetworksTitle).setVisibility(View.GONE);

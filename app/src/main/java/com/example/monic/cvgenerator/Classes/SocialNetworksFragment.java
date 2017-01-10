@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.monic.cvgenerator.CreateCVActivity;
+import com.example.monic.cvgenerator.HomeActivity;
 import com.example.monic.cvgenerator.R;
 
 /**
@@ -49,16 +50,16 @@ public class SocialNetworksFragment extends DialogFragment {
                 EditText socialNetwork3 = (EditText) view.findViewById(R.id.Sf_socialnetwork3ET);
                 EditText socialNetwork4 = (EditText) view.findViewById(R.id.Sf_socialnetwork4ET);
                 if (!socialNetwork1.getText().toString().isEmpty()) {
-                    CreateCVActivity.profile.addSocialNetwork(((TextView) view.findViewById(R.id.Sf_socialNetwork1TV)).getText().toString(), socialNetwork1.getText().toString());
+                    HomeActivity.profile.addSocialNetwork(((TextView) view.findViewById(R.id.Sf_socialNetwork1TV)).getText().toString(), socialNetwork1.getText().toString());
                 }
                 if (!socialNetwork2.getText().toString().isEmpty()) {
-                    CreateCVActivity.profile.addSocialNetwork(((TextView) view.findViewById(R.id.Sf_socialNetwork2TV)).getText().toString(), socialNetwork2.getText().toString());
+                    HomeActivity.profile.addSocialNetwork(((TextView) view.findViewById(R.id.Sf_socialNetwork2TV)).getText().toString(), socialNetwork2.getText().toString());
                 }
                 if (!socialNetwork3.getText().toString().isEmpty()) {
-                    CreateCVActivity.profile.addSocialNetwork(((TextView) view.findViewById(R.id.Sf_socialNetwork3TV)).getText().toString(), socialNetwork3.getText().toString());
+                    HomeActivity.profile.addSocialNetwork(((TextView) view.findViewById(R.id.Sf_socialNetwork3TV)).getText().toString(), socialNetwork3.getText().toString());
                 }
                 if (!socialNetwork4.getText().toString().isEmpty()) {
-                    CreateCVActivity.profile.addSocialNetwork(((TextView) view.findViewById(R.id.Sf_socialNetwork4TV)).getText().toString(), socialNetwork4.getText().toString());
+                    HomeActivity.profile.addSocialNetwork(((TextView) view.findViewById(R.id.Sf_socialNetwork4TV)).getText().toString(), socialNetwork4.getText().toString());
                 }
                 SocialNetworksFragment.this.dismiss();
             }

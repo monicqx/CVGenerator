@@ -26,6 +26,15 @@
         android:textColor="@color/colorPrimary"
         />
 
+    <Spinner
+        android:id="@+id/H_userSp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorAccent"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,6 +44,16 @@
         android:textColor="@color/white"
         android:background="@color/colorPrimaryDark"
         android:id="@+id/H_menuBtn"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NEW CV"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/H_newBtn"/>
 
 
 

@@ -55,7 +55,7 @@ public class LanguagesActivity extends AppCompatActivity implements SkillFragmen
     }
 
     private void createLanguagesListAdapter() {
-        skillAdapter = new SkillAdapter(LanguagesActivity.this,R.layout.skills_list_template, CreateCVActivity.profile.getLanguagesArrayList());
+        skillAdapter = new SkillAdapter(LanguagesActivity.this,R.layout.skills_list_template, HomeActivity.profile.getLanguagesArrayList());
         listView = (ListView)findViewById(R.id.L_languagesListView);
         listView.setAdapter(skillAdapter);
     }
@@ -71,7 +71,7 @@ public class LanguagesActivity extends AppCompatActivity implements SkillFragmen
         String[] token=string.split(";");
         if (token.length == 2) {
             Skill skill=new Skill(token[0],token[1]);
-            CreateCVActivity.profile.addLanguage(skill);
+            HomeActivity.profile.addLanguage(skill);
             skillAdapter.notifyDataSetChanged();
         }else{
             Log.w("languages","Language could not be added to arrayList.");
