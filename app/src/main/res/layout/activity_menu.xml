@@ -58,6 +58,16 @@
                 android:textColor="@color/white"
                 android:textSize="25dp" />
 
+            <Button
+                android:id="@+id/M_progressBtn"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:height="70dp"
+                android:background="@color/colorButtonLightest"
+                android:text="Progress"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

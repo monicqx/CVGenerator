@@ -13,6 +13,7 @@ public class MenuActivity extends AppCompatActivity {
     private Button viewCVBtn = null;
     private Button generateXML=null;
     private Button cvTipsBtn=null;
+    private Button progressBtn = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,13 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        progressBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ProgressActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void findViewsById() {
@@ -60,5 +68,6 @@ public class MenuActivity extends AppCompatActivity {
         viewCVBtn = (Button) findViewById(R.id.M_viewCVBtn);
         generateXML=(Button)findViewById(R.id.M_generateXMLBtn);
         cvTipsBtn=(Button)findViewById(R.id.M_tipsCVBtn);
+        progressBtn = (Button)findViewById(R.id.M_progressBtn);
     }
 }

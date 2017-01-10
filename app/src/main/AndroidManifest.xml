@@ -27,7 +27,8 @@
         <activity android:name=".CertificatesActivity" />
         <activity android:name=".ViewCVActivity" />
         <activity android:name=".TipsActivity" />
-        <activity android:name=".ViewXMLActivity"></activity>
+        <activity android:name=".ViewXMLActivity" />
+        <activity android:name=".ProgressActivity"></activity>
     </application>
 
 </manifest>

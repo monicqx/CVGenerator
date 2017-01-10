@@ -9,5 +9,16 @@
     <color name="colorButtonMedium">#68283f</color>
     <color name="colorButtonLightMedium">#8b405b</color>
     <color name="colorButtonLight">#b65b7b</color>
+    <color name="colorButtonLightest">#d095aa</color>
     <color name="colorSubtitle">#ba8900</color>
+
+    <color name="emptyPieChart">#d4d4f7</color>
+    <color name="personalInfoPieChart">#fff2cc</color>
+    <color name="socialNetworksPieChart">#ccfff2</color>
+    <color name="educationPieChart">#cce6ff</color>
+    <color name="workPieChart">#ffcccc</color>
+    <color name="languagesPieChart">#ffccff</color>
+    <color name="ITPieChart">#d6bc80</color>
+    <color name="skillsPieChart">#ccffcc</color>
+    <color name="certificatesPieChart">#878070</color>
 </resources>
