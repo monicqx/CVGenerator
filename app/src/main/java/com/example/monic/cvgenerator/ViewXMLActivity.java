@@ -1,5 +1,6 @@
 package com.example.monic.cvgenerator;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Xml;
@@ -150,6 +151,12 @@ public class ViewXMLActivity extends AppCompatActivity {
             }
             serializer.endTag("", "profile");
             serializer.endDocument();
+
+            SharedPreferences sharedPreferences = getSharedPreferences("lastUser",MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("firstName",HomeActivity.profile.getFirstName());
+            editor.putString("lastName",HomeActivity.profile.getLastName());
+            editor.commit();
             return writer.toString();
         } catch (Exception e) {
             throw new RuntimeException(e);

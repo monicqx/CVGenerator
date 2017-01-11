@@ -1,6 +1,7 @@
 package com.example.monic.cvgenerator;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -55,6 +56,13 @@ public class HomeActivity extends AppCompatActivity {
         populateSpinner();
         computeYearsArray();
 
+        SharedPreferences preferences = this.getSharedPreferences("lastUser",MODE_PRIVATE);
+        String currentUser = preferences.getString("firstName","unknown")+" ; "+preferences.getString("lastName","unknown");
+        for(int i=0;i<userSp.getCount();i++)
+            if(userSp.getItemAtPosition(i).equals(currentUser)){
+                userSp.setSelection(i);
+                break;
+            }
         //deleteAllFromDatabase();
 
         menuBtn.setOnClickListener(new View.OnClickListener() {

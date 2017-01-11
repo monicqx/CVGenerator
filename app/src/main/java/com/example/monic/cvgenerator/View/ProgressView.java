@@ -47,7 +47,7 @@ public class ProgressView extends View {
             paint.setColor(getContext().getResources().getColor((R.color.personalInfoPieChart)));
             canvas.drawRect(0, width, 100, width + 100, paint);
             paint.setColor(getContext().getResources().getColor((R.color.colorPrimaryDark)));
-            canvas.drawText("Personal Information",150,width+60,paint);
+            canvas.drawText(getContext().getResources().getString(R.string.createcv_title),150,width+60,paint);
             width+=150;
             if (HomeActivity.profile.getSocialNetworksMap().isEmpty() == false) {
                 paint.setColor(getContext().getResources().getColor((R.color.socialNetworksPieChart)));
@@ -56,7 +56,7 @@ public class ProgressView extends View {
                 paint.setColor(getContext().getResources().getColor((R.color.socialNetworksPieChart)));
                 canvas.drawRect(0, width, 100, width + 100, paint);
                 paint.setColor(getContext().getResources().getColor((R.color.colorPrimaryDark)));
-                canvas.drawText("Social Networks",150,width+60,paint);
+                canvas.drawText(getContext().getResources().getString(R.string.social_networks),150,width+60,paint);
                 width+=150;
             }
             if (HomeActivity.profile.getEducationArrayList().isEmpty() == false) {
@@ -66,7 +66,7 @@ public class ProgressView extends View {
                 paint.setColor(getContext().getResources().getColor((R.color.educationPieChart)));
                 canvas.drawRect(0, width, 100, width + 100, paint);
                 paint.setColor(getContext().getResources().getColor((R.color.colorPrimaryDark)));
-                canvas.drawText("Education",150,width+60,paint);
+                canvas.drawText(getContext().getResources().getString(R.string.education_title),150,width+60,paint);
                 width+=150;
             }
             if (HomeActivity.profile.getWorkExperienceArrayList().isEmpty() == false) {
@@ -76,7 +76,7 @@ public class ProgressView extends View {
                 paint.setColor(getContext().getResources().getColor((R.color.workPieChart)));
                 canvas.drawRect(0, width, 100, width + 100, paint);
                 paint.setColor(getContext().getResources().getColor((R.color.colorPrimaryDark)));
-                canvas.drawText("Work Experience",150,width+60,paint);
+                canvas.drawText(getContext().getResources().getString(R.string.work_experience_title),150,width+60,paint);
                 width+=150;
             }
             if (HomeActivity.profile.getLanguagesArrayList().isEmpty() == false) {
@@ -86,7 +86,7 @@ public class ProgressView extends View {
                 paint.setColor(getContext().getResources().getColor((R.color.languagesPieChart)));
                 canvas.drawRect(0, width, 100, width + 100, paint);
                 paint.setColor(getContext().getResources().getColor((R.color.colorPrimaryDark)));
-                canvas.drawText("Languages",150,width+60,paint);
+                canvas.drawText(getContext().getResources().getString(R.string.languages_title),150,width+60,paint);
                 width+=150;
             }
             if (HomeActivity.profile.getItSkillsArrayList().isEmpty() == false) {
@@ -96,7 +96,7 @@ public class ProgressView extends View {
                 paint.setColor(getContext().getResources().getColor((R.color.ITPieChart)));
                 canvas.drawRect(0, width, 100, width + 100, paint);
                 paint.setColor(getContext().getResources().getColor((R.color.colorPrimaryDark)));
-                canvas.drawText("IT Skills",150,width+60,paint);
+                canvas.drawText(getContext().getResources().getString(R.string.it_skills_title),150,width+60,paint);
                 width+=150;
             }
             if (HomeActivity.profile.getOtherSkillsArrayList().isEmpty() == false) {
@@ -106,7 +106,7 @@ public class ProgressView extends View {
                 paint.setColor(getContext().getResources().getColor((R.color.skillsPieChart)));
                 canvas.drawRect(0, width, 100, width + 100, paint);
                 paint.setColor(getContext().getResources().getColor((R.color.colorPrimaryDark)));
-                canvas.drawText("Other skills",150,width+60,paint);
+                canvas.drawText(getContext().getResources().getString(R.string.other_skills_title),150,width+60,paint);
                 width+=150;
             }
             if (HomeActivity.profile.getCertificatesArrayList().isEmpty() == false) {
@@ -116,7 +116,7 @@ public class ProgressView extends View {
                 paint.setColor(getContext().getResources().getColor((R.color.certificatesPieChart)));
                 canvas.drawRect(0, width, 100, width + 100, paint);
                 paint.setColor(getContext().getResources().getColor((R.color.colorPrimaryDark)));
-                canvas.drawText("Certificates",150,width+60,paint);
+                canvas.drawText(getContext().getResources().getString(R.string.certificates_title),150,width+60,paint);
                 width+=150;
             }
         }

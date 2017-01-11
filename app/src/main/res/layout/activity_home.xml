@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcome_text"
+        android:text="@string/introduction_app"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
         android:textSize="30dp"
@@ -38,7 +38,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Menu"
+        android:text="@string/menu"
         android:textSize="20dp"
         android:layout_marginTop="20dp"
         android:textColor="@color/white"
@@ -48,7 +48,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NEW CV"
+        android:text="@string/new_cv"
         android:textSize="20dp"
         android:layout_marginTop="20dp"
         android:textColor="@color/white"

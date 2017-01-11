@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">CV Generator</string>
+    <string name="introduction_app">Hello!</string>
     <string name="create_cv">Create CV</string>
+    <string name="menu">Menu</string>
+    <string name="new_cv">New CV</string>
     <string name="view_cv">View CV</string>
+    <string name="generate_xml">Generate XML</string>
+    <string name="progress">Progress</string>
     <string name="edit_cv">Edit CV</string>
     <string name="tips">Tips</string>
     <string name="welcome_text">Hello!</string>
