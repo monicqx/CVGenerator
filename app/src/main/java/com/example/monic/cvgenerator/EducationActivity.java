@@ -71,9 +71,7 @@ public class EducationActivity extends AppCompatActivity {
      * Checks if there isn't any Education object in the education ArrayList
      */
     private boolean noEducationAdded() {
-        if (HomeActivity.profile.getEducationArrayList().isEmpty())
-            return true;
-        return false;
+        return HomeActivity.profile.getEducationArrayList().isEmpty();
     }
 
     private void findViewsById() {
@@ -97,6 +95,9 @@ public class EducationActivity extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * Clears controls of all text
+     */
     private void clearControls() {
         schoolET.getText().clear();
         fieldET.getText().clear();

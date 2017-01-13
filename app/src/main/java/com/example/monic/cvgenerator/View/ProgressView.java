@@ -16,13 +16,13 @@ import com.example.monic.cvgenerator.R;
 
 public class ProgressView extends View {
 
+    Paint paint;
+    RectF rect;
+
     public ProgressView(Context context){
         super(context);
         initializeTools();
     }
-
-    Paint paint;
-    RectF rect;
 
     private void initializeTools() {
         paint = new Paint();

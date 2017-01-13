@@ -92,16 +92,16 @@ public class HomeActivity extends AppCompatActivity {
      * Deletes all entries from all tables in the database
      */
     private void deleteAllFromDatabase() {
-//        DatabaseAdapter dbAdapter = new DatabaseAdapter(getApplicationContext());
-//        dbAdapter.openConnection();
-//        List<String> users=dbAdapter.getUsers();
-//        for(String user:users){
-//            String[] names=user.split(" ; ");
-//
-//            int userId=dbAdapter.getUserIdByNames(names[0],names[1]);
-//            dbAdapter.deleteAllCvsOfAUser(userId);
-//        }
-//        dbAdapter.deleteUsers();
+        DatabaseAdapter dbAdapter = new DatabaseAdapter(getApplicationContext());
+        dbAdapter.openConnection();
+        List<String> users=dbAdapter.getUsers();
+        for(String user:users){
+            String[] names=user.split(" ; ");
+
+            int userId=dbAdapter.getUserIdByNames(names[0],names[1]);
+            dbAdapter.deleteAllCvsOfAUser(userId);
+        }
+        dbAdapter.deleteUsers();
     }
 
 

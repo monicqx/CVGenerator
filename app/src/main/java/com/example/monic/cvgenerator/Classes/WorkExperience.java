@@ -1,8 +1,5 @@
 package com.example.monic.cvgenerator.Classes;
 
-/**
- * Created by Bianca on 23.11.2016.
- */
 
 public class WorkExperience {
     private String position;

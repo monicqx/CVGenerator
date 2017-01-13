@@ -15,9 +15,6 @@ import com.example.monic.cvgenerator.CreateCVActivity;
 import com.example.monic.cvgenerator.HomeActivity;
 import com.example.monic.cvgenerator.R;
 
-/**
- * Created by monic on 22.11.2016.
- */
 
 public class SocialNetworksFragment extends DialogFragment {
     private OnFragmentInteractionListener mListener;

@@ -78,7 +78,6 @@ public class SkillFragment extends DialogFragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
-
     }
 
     public interface OnFragmentInteractionListener {

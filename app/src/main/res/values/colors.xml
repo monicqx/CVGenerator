@@ -12,13 +12,13 @@
     <color name="colorButtonLightest">#d095aa</color>
     <color name="colorSubtitle">#ba8900</color>
 
-    <color name="emptyPieChart">#d4d4f7</color>
+    <color name="emptyPieChart">#ffffff</color>
     <color name="personalInfoPieChart">#fff2cc</color>
     <color name="socialNetworksPieChart">#ccfff2</color>
-    <color name="educationPieChart">#cce6ff</color>
+    <color name="educationPieChart">#b0d8fd</color>
     <color name="workPieChart">#ffcccc</color>
-    <color name="languagesPieChart">#ffccff</color>
+    <color name="languagesPieChart">#fc67fc</color>
     <color name="ITPieChart">#d6bc80</color>
-    <color name="skillsPieChart">#ccffcc</color>
+    <color name="skillsPieChart">#a0ffa0</color>
     <color name="certificatesPieChart">#878070</color>
 </resources>
